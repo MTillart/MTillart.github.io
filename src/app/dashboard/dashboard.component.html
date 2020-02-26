@@ -1,0 +1,59 @@
+<div class="dashboard" fxLayout="row" fxLayoutAlign="space-between start">
+
+<table >
+  <thead>
+    <tr>
+      <td>Ülesanded</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><mat-icon>home</mat-icon></td>
+    </tr>
+    <tr *ngFor="let item of dataSource1; let i = index">
+
+      <td>
+        <mat-checkbox [checked]="item.isDone"></mat-checkbox>
+        {{item.Task}}
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <td>Ülesanded</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataSource; let i = index">
+
+      <td>
+        <mat-checkbox [checked]="item.isDone"></mat-checkbox>
+        {{item.Task}}
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <td>Ülesanded</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataSource; let i = index">
+
+      <td>
+        <mat-checkbox [checked]="item.isDone"></mat-checkbox>
+        {{item.Task}}
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

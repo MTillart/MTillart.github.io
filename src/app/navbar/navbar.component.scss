@@ -1,0 +1,49 @@
+@import 'base/typography';
+
+.dashboard{
+    padding: 10px;
+}
+.logo{ 
+    margin: 35px 10px 0 10px;
+    //background-color: blue;
+}
+.navbar {
+    margin: 30px;
+    align-self: center;
+    height: 64px;
+    border: 1px solid $primary-blue;
+    border-radius: 20px;
+    background-color: $primary-bg;
+}
+.isikud, .dokumendid, .toimikud, .ajaarvestus, .user-panel{
+
+    width: 100%;
+    //background-color: yellow;
+    height: 30px;
+    border-left: 1px solid $primary-bg;
+    box-shadow: inset  6px 0px 3px -5px $primary-bg;
+    transform: skewX(-35deg);
+    padding-left: 3%;
+    border-left: 1px solid #E7E9F1;
+
+    //margin-top: 15px;
+    //margin-bottom: 15px;
+    //background-color: yellow;
+    //overflow:hidden;
+    
+
+    h2{
+        margin:0px;
+        color: $primary-blue;
+        //margin-left: 35%;
+        transform: skewX(35deg);
+        
+        
+        
+
+    }
+}
+.actionbar{
+    margin-right: 20px;
+    //background-color: red;
+}

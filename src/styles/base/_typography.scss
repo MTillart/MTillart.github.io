@@ -1,0 +1,25 @@
+$primary-blue: #1853AB; //main text and icon color
+$secondary-blue: #0038FF;
+
+$primary-grey: #767676;
+$secondary-grey: #B4B6BB ; //lines, grids and such
+
+$primary-bg: #FEFEFE; //background, and texts in dark bg
+
+
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/assets/font/Saira-Regular.ttf/');
+  }
+
+* {
+    font-family: 'Saira';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 38px;
+   }
+   mat-icon{
+    font-family: 'Material Icons' !important; //important for icons to work
+}

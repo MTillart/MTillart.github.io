@@ -1,0 +1,24 @@
+:host{
+    display: block;
+    left: 0;
+    height: 50px;
+    font-size: 12px;
+}
+
+.otsing{
+    margin: 2%;
+    height: 20px;
+    }
+
+.lable {
+    color: #FAFAFA;
+    font-size: 12px;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.3em 0px;}
+::ng-deep .mat-form-field-label-wrapper { top: -2em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-2.1em) scale(.75);
+    width: 50%;
+}
