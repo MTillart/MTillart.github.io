@@ -43,6 +43,16 @@
 
     }
 }
+.user-panel {
+    // display: inline-flex;
+    // justify-content: flex-end;
+    mat-icon{
+        margin-right: 30px;
+        transform: skewX(35deg);
+        font-size: 30px;
+    }
+    
+}
 .actionbar{
     margin-right: 20px;
     //background-color: red;

@@ -8,6 +8,11 @@
 .otsing{
     margin: 2%;
     height: 20px;
+    mat-form-field{
+        input{
+            font-size: 20px;
+        }
+    }
     }
 
 .lable {
