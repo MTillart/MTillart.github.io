@@ -18,18 +18,16 @@ table {
   display: inline-block;
   border-left: 1px solid $secondary-grey;
   //background-color: RED;
-
  
 
   
-
-  }
   thead {
     text-align: center;
     display: inline-table;
     color: $primary-blue;
     width: 100%; 
     border-bottom: 1px solid $secondary-grey;
+    height: 45px;
     
   }
   tr{
@@ -41,3 +39,14 @@ table {
     border-bottom-width: 0;
   }
 
+}
+.kalender{
+  display: unset;
+
+}
+mat-icon{
+  margin:0;
+  padding: 0;
+  font-size: 30px;
+
+}

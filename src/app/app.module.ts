@@ -10,13 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, 
   MatFormFieldModule, MatRadioModule, MatSelectModule, MatSliderModule, 
   MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule, MatIconModule } from '@angular/material';
+  MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { IsikudComponent } from './isikud/isikud.component';
 import { DokumendidComponent } from './dokumendid/dokumendid.component';
 import { ToimikudComponent } from './toimikud/toimikud.component';
 import { AjaarvestusComponent } from './ajaarvestus/ajaarvestus.component';
+import { KalenderPopUpComponent } from './kalender-pop-up/kalender-pop-up.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -29,7 +31,11 @@ import { AjaarvestusComponent } from './ajaarvestus/ajaarvestus.component';
     IsikudComponent,
     DokumendidComponent,
     ToimikudComponent,
-    AjaarvestusComponent
+    AjaarvestusComponent,
+    KalenderPopUpComponent
+  ],
+  entryComponents: [
+    KalenderPopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +58,8 @@ import { AjaarvestusComponent } from './ajaarvestus/ajaarvestus.component';
     MatSortModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatDialogModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
