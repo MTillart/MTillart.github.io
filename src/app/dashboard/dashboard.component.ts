@@ -2,29 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { KalenderPopUpComponent } from '../kalender-pop-up/kalender-pop-up.component';
-import {To_Do} from '../_interface/to_do'
+import {To_Do} from '../_models/to_do'
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 
 })
 export class DashboardComponent implements OnInit {
+  public currentUser;
+
   dataSource = DASH_DATA;
   dataSource1 = DASH_DATA1;
   columnsToDisplay = ['Task'];
-  expandedElement: To_Do | null;
 
   constructor(
     public dialog: MatDialog) {
+      this.currentUser = localStorage.getItem('currentUser')? JSON.parse(localStorage.getItem('currentUser')) : '';
 
    }
 // Open pop-up and configur it. Send data

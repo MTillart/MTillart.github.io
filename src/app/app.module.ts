@@ -19,6 +19,11 @@ import { ToimikudComponent } from './toimikud/toimikud.component';
 import { AjaarvestusComponent } from './ajaarvestus/ajaarvestus.component';
 import { KalenderPopUpComponent } from './kalender-pop-up/kalender-pop-up.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './_error.interceptor';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -32,7 +37,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     DokumendidComponent,
     ToimikudComponent,
     AjaarvestusComponent,
-    KalenderPopUpComponent
+    KalenderPopUpComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   entryComponents: [
     KalenderPopUpComponent,
@@ -59,9 +66,15 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressSpinnerModule,
     MatIconModule,
     MatDialogModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

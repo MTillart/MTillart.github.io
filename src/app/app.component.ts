@@ -1,4 +1,8 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
+import { AuthenticationService } from './_services/authentication.service';
+import { Router } from '@angular/router';
+
+import { User } from './_models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +10,15 @@ import { Component, ElementRef, AfterViewInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  constructor(private elementRef: ElementRef){
+
+  currentUser: User;
+
+  constructor(
+    private elementRef: ElementRef,
+    private router: Router,
+    private authenticationService: AuthenticationService
+    ){
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
  
   }
     
@@ -16,4 +28,9 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(){
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#d3d3d3';
  }
+
+ logout() {
+  this.authenticationService.logout();
+  this.router.navigate(['/login']);
+}
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef, MatCalendarCellCssClasses} from "@angular/material";
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { To_Do } from '../_interface/to_do';
+import { To_Do } from '../_models/to_do';
 
 @Component({
   selector: 'app-kalender-pop-up',
