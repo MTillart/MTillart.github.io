@@ -10,7 +10,10 @@ import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  {
+    path: '', component: DashboardComponent,
+    //canActivate: [AuthGuard]
+  },
   {path: 'isikud', component: IsikudComponent },
   {path: 'dokumendid', component: DokumendidComponent },
   {path: 'toimikud', component: ToimikudComponent },
