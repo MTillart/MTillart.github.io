@@ -16,11 +16,8 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private elementRef: ElementRef,
     private router: Router,
-    private authenticationService: AuthenticationService
-    ){
-      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
- 
-  }
+    public auth: AuthenticationService
+    ){}
     
   title = 'loputoo';
 
@@ -29,8 +26,4 @@ export class AppComponent implements AfterViewInit {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#d3d3d3';
  }
 
- logout() {
-  this.authenticationService.logout();
-  this.router.navigate(['/login']);
-}
 }

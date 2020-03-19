@@ -1,56 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { AuthenticationService } from '../_services/authentication.service';
 import { Router } from '@angular/router';
-//import { ToastrService } from 'ngx-toastr';
-
-import { UserService } from '../_services/user.service';
+import { TokenPayload } from '../_models/user';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  templateUrl: './register.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+  credentials: TokenPayload = {
+    email: '',
+    name: '',
+    password: ''
+  };
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private userService: UserService,
-    //private toastr: ToastrService
-  ) { }
-  registerForm: FormGroup;
-  loading = false;
-  submitted = false;
+  constructor(private auth: AuthenticationService, private router: Router) {}
 
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      // firstName: ['', Validators.required],
-      // lastName: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+  register() {
+    console.log("Reged!")
+    this.auth.register(this.credentials).subscribe(() => {
+      this.router.navigateByUrl('/');
+    }, (err) => {
+      console.error(err);
     });
   }
-
-  get fval() { return this.registerForm.controls; }
-
-  onFormSubmit() {
-    this.submitted = true;
-    // return for here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-    this.loading = true;
-    this.userService.register(this.registerForm.value).subscribe(
-      (data) => {
-        alert('User Registered successfully!!');
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        //this.toastr.error(error.error.message, 'Error');
-        this.loading = false;
-      }
-    )
-
-  }
-
 }

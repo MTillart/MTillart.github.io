@@ -1,8 +1,16 @@
-export class User {
-    id: number;
-    username: string;
+export interface User {
+    _id: string;
+    email: string;
+    name: string;
+    exp: number;
+    iat: number;
+}
+export interface TokenResponse {
+    token: string;
+}
+
+export interface TokenPayload {
+    email: string;
     password: string;
-    firstName: string;
-    lastName: string;
-    authdata?: string;
+    name?: string;
 }
