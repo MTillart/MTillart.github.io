@@ -27,7 +27,7 @@ export const light: Theme = {
     "--calender-primary": "#4D6EA1",
     "--error-secondary": "#ffcecc",
 
-    "--background-tertiary-shadow": "0 1px 3px 0 rgba(92, 125, 153, 0.5)"
+    "--background-hover-shadow": "2px 4px 4px rgba(0, 0, 0, 0.40)"
   }
 };
 
@@ -55,6 +55,6 @@ export const dark: Theme = {
     "--calender-primary": "#4D6EA1",
     "--error-secondary": "#ffcecc",
 
-    "--background-tertiary-shadow": "0 1px 3px 0 rgba(8, 9, 10, 0.5)"
+    "--background-hover-shadow": "2px 4px 4px rgba(255, 255, 255, 0.40)"
   }
 };

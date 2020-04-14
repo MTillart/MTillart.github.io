@@ -1,22 +1,135 @@
-<svg width="124" height="71" viewBox="0 0 124 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
-<path d="M10.016 36.564C11.072 39.708 13.112 41.28 16.136 41.28C18.176 41.28 19.592 40.704 20.384 39.552C21.2 38.376 21.608 36.768 21.608 34.728V16.8H22.688V34.728C22.688 39.816 20.504 42.36 16.136 42.36C14.072 42.36 12.476 41.844 11.348 40.812C10.244 39.78 9.368 38.364 8.72 36.564H10.016ZM32.5486 40.92H44.2846L36.9046 23.532L29.0566 42H27.9046L36.9046 20.76L45.9046 42H32.5486V40.92ZM51.0917 42V21.12H52.1717V42H51.0917ZM64.4117 42L53.3237 30.984L63.2597 21.12H64.8077L54.8717 30.984L65.9597 42H64.4117ZM76.2071 20.688C79.1831 20.688 81.2951 21.348 82.5431 22.668L81.8231 23.46C80.6711 22.332 78.8471 21.768 76.3511 21.768C72.6071 21.768 70.7351 23.256 70.7351 26.232C70.7351 27.384 71.1911 28.308 72.1031 29.004C73.0151 29.676 74.1191 30.192 75.4151 30.552C76.7351 30.912 78.0431 31.296 79.3391 31.704C80.6591 32.088 81.7751 32.724 82.6871 33.612C83.5991 34.476 84.0551 35.616 84.0551 37.032C84.0551 38.688 83.3711 40.008 82.0031 40.992C80.6351 41.976 78.6551 42.468 76.0631 42.468C74.7911 42.468 73.5311 42.3 72.2831 41.964C71.0591 41.628 70.1471 41.136 69.5471 40.488L70.2671 39.696C71.4911 40.824 73.3751 41.388 75.9191 41.388C78.2471 41.388 79.9991 40.956 81.1751 40.092C82.3751 39.228 82.9751 38.22 82.9751 37.068C82.9751 35.868 82.5191 34.896 81.6071 34.152C80.6951 33.408 79.5791 32.856 78.2591 32.496C76.9631 32.112 75.6551 31.728 74.3351 31.344C73.0391 30.936 71.9351 30.312 71.0231 29.472C70.1111 28.632 69.6551 27.528 69.6551 26.16C69.6551 24.312 70.2671 22.944 71.4911 22.056C72.7391 21.144 74.3111 20.688 76.2071 20.688Z" fill="#F1F1F1"/>
-</g>
-<path d="M84 30L84 17.5V11H77.9338V15L45.9485 0.999996L14.5147 15V11L9 11V17.5V30" stroke="#F1F1F1"/>
-<path d="M25 18V43" stroke="#1853AB"/>
-<path d="M47 18V43" stroke="#1853AB"/>
-<path d="M67 18V43" stroke="#1853AB"/>
-<path d="M84 45L9 45" stroke="#F1F1F1"/>
-<path d="M94 49L0 49" stroke="#F1F1F1"/>
-<defs>
-<filter id="filter0_d" x="4.71997" y="16.8" width="83.3351" height="33.668" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-</filter>
-</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="124"
+   height="71"
+   viewBox="0 0 124 71"
+   fill="none"
+   version="1.1"
+   id="svg35"
+   sodipodi:docname="jaks_logo_dark.svg"
+   inkscape:export-filename="C:\Users\merli\Pictures\jaks_logo_dark.png"
+   inkscape:export-xdpi="276.39948"
+   inkscape:export-ydpi="276.39948"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata39">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1374"
+     id="namedview37"
+     showgrid="false"
+     inkscape:zoom="3.1451613"
+     inkscape:cx="62"
+     inkscape:cy="35.5"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg35" />
+  <g
+     id="g4"
+     transform="matrix(1.3078014,0,0,1.3078014,0,-0.13956614)"
+     style="filter:url(#filter0_d)">
+    <path
+       d="m 10.016,36.564 c 1.056,3.144 3.096,4.716 6.12,4.716 2.04,0 3.456,-0.576 4.248,-1.728 0.816,-1.176 1.224,-2.784 1.224,-4.824 V 16.8 h 1.08 v 17.928 c 0,5.088 -2.184,7.632 -6.552,7.632 -2.064,0 -3.66,-0.516 -4.788,-1.548 C 10.244,39.78 9.368,38.364 8.72,36.564 Z m 22.5326,4.356 h 11.736 L 36.9046,23.532 29.0566,42 h -1.152 l 9,-21.24 9,21.24 H 32.5486 Z M 51.0917,42 V 21.12 h 1.08 V 42 Z m 13.32,0 -11.088,-11.016 9.936,-9.864 h 1.548 L 54.8717,30.984 65.9597,42 Z M 76.2071,20.688 c 2.976,0 5.088,0.66 6.336,1.98 l -0.72,0.792 c -1.152,-1.128 -2.976,-1.692 -5.472,-1.692 -3.744,0 -5.616,1.488 -5.616,4.464 0,1.152 0.456,2.076 1.368,2.772 0.912,0.672 2.016,1.188 3.312,1.548 1.32,0.36 2.628,0.744 3.924,1.152 1.32,0.384 2.436,1.02 3.348,1.908 0.912,0.864 1.368,2.004 1.368,3.42 0,1.656 -0.684,2.976 -2.052,3.96 -1.368,0.984 -3.348,1.476 -5.94,1.476 -1.272,0 -2.532,-0.168 -3.78,-0.504 -1.224,-0.336 -2.136,-0.828 -2.736,-1.476 l 0.72,-0.792 c 1.224,1.128 3.108,1.692 5.652,1.692 2.328,0 4.08,-0.432 5.256,-1.296 1.2,-0.864 1.8,-1.872 1.8,-3.024 0,-1.2 -0.456,-2.172 -1.368,-2.916 -0.912,-0.744 -2.028,-1.296 -3.348,-1.656 -1.296,-0.384 -2.604,-0.768 -3.924,-1.152 -1.296,-0.408 -2.4,-1.032 -3.312,-1.872 -0.912,-0.84 -1.368,-1.944 -1.368,-3.312 0,-1.848 0.612,-3.216 1.836,-4.104 1.248,-0.912 2.82,-1.368 4.716,-1.368 z"
+       id="path2"
+       inkscape:connector-curvature="0"
+       style="fill:#f1f1f1" />
+  </g>
+  <path
+     d="m 109.85532,39.094476 v -16.347517 -8.50071 h -7.93339 v 5.231206 L 60.091513,1.16823 18.982345,19.477455 v -5.231206 h -7.212132 v 8.50071 16.347517"
+     id="path6"
+     inkscape:connector-curvature="0"
+     style="stroke:#f1f1f1;stroke-width:1.30780137" />
+  <path
+     d="M 32.695035,23.400859 V 56.095895"
+     id="path8"
+     inkscape:connector-curvature="0"
+     style="stroke:#1853ab;stroke-width:1.30780137" />
+  <path
+     d="M 61.466667,23.400859 V 56.095895"
+     id="path10"
+     inkscape:connector-curvature="0"
+     style="stroke:#1853ab;stroke-width:1.30780137" />
+  <path
+     d="M 87.622695,23.400859 V 56.095895"
+     id="path12"
+     inkscape:connector-curvature="0"
+     style="stroke:#1853ab;stroke-width:1.30780137" />
+  <path
+     d="M 109.85532,58.711498 H 11.770213"
+     id="path14"
+     inkscape:connector-curvature="0"
+     style="stroke:#f1f1f1;stroke-width:1.30780137" />
+  <path
+     d="M 122.93333,63.942703 H 0"
+     id="path16"
+     inkscape:connector-curvature="0"
+     style="stroke:#f1f1f1;stroke-width:1.30780137" />
+  <defs
+     id="defs33">
+    <filter
+       id="filter0_d"
+       x="4.71997"
+       y="16.8"
+       width="83.3351"
+       height="33.668"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood18" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         id="feColorMatrix20" />
+      <feOffset
+         dy="4"
+         id="feOffset22" />
+      <feGaussianBlur
+         stdDeviation="2"
+         id="feGaussianBlur24" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+         id="feColorMatrix26" />
+      <feBlend
+         mode="normal"
+         in2="BackgroundImageFix"
+         result="effect1_dropShadow"
+         id="feBlend28" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="effect1_dropShadow"
+         result="shape"
+         id="feBlend30" />
+    </filter>
+  </defs>
 </svg>

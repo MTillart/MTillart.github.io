@@ -1,15 +1,15 @@
-<div class="dashboard">
+<div class="mainBar">
     <div class="navbar" fxLayout="row" fxLayoutAlign="space-evenly center">
                  
         
             <div class="logo" fxFlex="10" >
-                <img src="../../assets/img/jaks_logo_{{iconTheme}}.svg" routerLink = "" routerLinkActive = "active">
+                <img src="../../assets/img/jaks_logo_{{iconTheme}}.svg" routerLink = "" routerLinkActive = "logo-active"> 
             </div>
             <div fxFlex="90" class="actionbar" fxLayout="row" fxLayoutAlign="space-evenly start">
-                <div class="isikud"><a routerLink = "/isikud" routerLinkActive = "active" ><h2>Isikud</h2></a></div>
-                <div class="dokumendid"><a routerLink = "/dokumendid" routerLinkActive = "active"><h2>Dokumendid</h2></a></div>
-                <div class="toimikud"><a routerLink = "/toimikud" routerLinkActive = "active"><h2>Toimikud</h2></a></div>
-                <div class="ajaarvestus"><a routerLink = "/ajaarvestus" routerLinkActive = "active"><h2>Ajaarvestus</h2></a></div>
+                <div class="isikud" routerLinkActive = "active"><a routerLink = "isikud"><h2>Isikud</h2></a></div>
+                <div class="dokumendid" routerLinkActive = "active"><a routerLink = "dokumendid" ><h2>Dokumendid</h2></a></div>
+                <div class="toimikud" routerLinkActive = "active"><a routerLink = "toimikud" ><h2>Toimikud</h2></a></div>
+                <div class="ajaarvestus" routerLinkActive = "active"><a routerLink = "ajaarvestus"><h2>Ajaarvestus</h2></a></div>
                 <div class="user-panel" fxLayoutAlign="space-evenly">
                     <button mat-button><mat-icon color="accent" aria-hidden="false" (click)= "toggleTheme()">settings</mat-icon></button>
                     <button mat-button><mat-icon color="primary">mail</mat-icon></button>

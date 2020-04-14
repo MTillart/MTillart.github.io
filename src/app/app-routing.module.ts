@@ -16,17 +16,18 @@ const routes: Routes = [
     path: '',
     //canActivate: [AuthGuard],
     children: [
-      {path: '', component: DashboardComponent},
+      { path: '', component: DashboardComponent },
       { path: 'isikud', component: IsikudComponent },
       { path: 'dokumendid', component: DokumendidComponent },
       { path: 'toimikud', component: ToimikudComponent },
       { path: 'ajaarvestus', component: AjaarvestusComponent },
     ]
   },
+
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   // otherwise redirect to home
-  { path: '**', redirectTo: '/' },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 
 
 ];
