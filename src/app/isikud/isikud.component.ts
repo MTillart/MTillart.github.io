@@ -15,6 +15,10 @@ export class IsikudComponent implements OnInit {
   ngOnInit() {
   }
 
+  showText(text){
+    console.log("Message:"+ text)
+  }
+
   
 }
 
@@ -43,7 +47,7 @@ const PersonData: Person[] = [
 
   },
   {
-    Id: 47,
+    Id: 154,
     Name: "OÜ Päevakaja",
     Phone: 51459527,
     Email: "paevakaja@hotmail.com"

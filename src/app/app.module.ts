@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, 
   MatFormFieldModule, MatRadioModule, MatSelectModule, MatSliderModule, 
   MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule } from '@angular/material';
+  MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { IsikudComponent } from './isikud/isikud.component';
@@ -24,6 +24,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_error.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomDateAdapter } from './_helpers/custom-date-adapter';
+
+
+
 
 
 
@@ -39,7 +43,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AjaarvestusComponent,
     KalenderPopUpComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   entryComponents: [
     KalenderPopUpComponent,
@@ -69,10 +73,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        {provide: MAT_DATE_LOCALE, useValue: 'est'},
+        {provide: DateAdapter, useClass: CustomDateAdapter },
 
   ],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Kalender</h2>
+<h3 mat-dialog-title>Sündmuse sisestamine</h3>
 
 <mat-dialog-content>
 
@@ -6,17 +6,17 @@
         <input matInput
                 placeholder="Sisesta sündmus"
                formControlName="Task">
-
-              
     </mat-form-field>
-    <hr>
+
     <!-- <ul *ngFor="let item of dataArray">
         <li>{{item.Task}}</li>
     </ul> -->
+
     <div class="calendar-wrapper">
         <mat-calendar [dateClass]="dateClass()" [selected]="selectedDate" #calendar [(selected)]="selectedDate">
         </mat-calendar>
     </div>
+
  
 </mat-dialog-content>
 

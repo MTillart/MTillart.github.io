@@ -1,7 +1,7 @@
 
 <!-- Kui authGuard on peal eemalda hüüumärgid currentUser-ilt -->
-<app-navbar *ngIf="auth.isLoggedIn()"></app-navbar>
-<app-search *ngIf="auth.isLoggedIn()"></app-search>
+<app-navbar *ngIf="!auth.isLoggedIn()"></app-navbar>
+<app-search *ngIf="!auth.isLoggedIn()"></app-search>
 
 <router-outlet>
     

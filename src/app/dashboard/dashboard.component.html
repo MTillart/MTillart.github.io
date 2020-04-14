@@ -13,8 +13,9 @@
     <tr *ngFor="let item of dataSource1; let i = index">
 
       <td>
-        <mat-checkbox [checked]="item.isDone"></mat-checkbox>
+        <mat-checkbox class="checkBox" [checked]="item.isDone"></mat-checkbox>
         {{item.Task}}
+        
       </td>
     </tr>
 
@@ -42,12 +43,11 @@
 <table>
   <thead>
     <tr>
-      <td>Ülesanded</td>
+      <td>Käimas olevad tööd</td>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of dataSource; let i = index">
-
       <td>
         <mat-checkbox [checked]="item.isDone"></mat-checkbox>
         {{item.Task}}

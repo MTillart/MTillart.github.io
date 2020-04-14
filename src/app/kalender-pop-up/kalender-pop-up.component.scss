@@ -1,3 +1,30 @@
 ::ng-deep.special-date {
-    background-color: red;
- }
+  background-color: var(--calender-primary);
+  border-radius: 40px;
+}
+::ng-deep.host{
+  background-color: chartreuse;
+}
+mat-dialog {
+  background-color: var(--calender-bg);
+}
+mat-calendar {
+  zoom: "0.25";
+}
+
+
+mat-form-field {
+  width: 100%;
+  input {
+    background-color: var(--calender-primary);
+  }
+}
+.mat-calendar {
+    display: block;
+    color: var(--calender-text-primary);
+  }
+ 
+.calendar-wrapper{
+    width: 300px;
+    text-align: center;
+}

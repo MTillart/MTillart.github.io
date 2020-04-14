@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
 
   dataSource = DASH_DATA;
   dataSource1 = DASH_DATA1;
+ 
   columnsToDisplay = ['Task'];
 
   constructor(
@@ -26,24 +27,22 @@ export class DashboardComponent implements OnInit {
    openDialog() {
 
     const dialogConfig = new MatDialogConfig();
-    console.log("HEllo ")
 
     dialogConfig.disableClose = true;
-    dialogConfig.height = "650px";
+    dialogConfig.height = "500px";
     dialogConfig.width = "600px";
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.panelClass= 'dialogBox';
     //dialogConfig.autoFocus = true;
 
   //   dialogConfig.data = {
   //     id: 1,
-  //     title: 'Angular For Beginners'
+  //     title: 'Kalender'
   // };
   dialogConfig.data = DASH_DATA;
 
     this.dialog.open(KalenderPopUpComponent, dialogConfig);
 }
-
-
-
 
 
   ngOnInit() {

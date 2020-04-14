@@ -15,6 +15,7 @@ export class KalenderPopUpComponent implements OnInit {
   dataArray: Array<To_Do>;
 
   selectedDate: any;
+  testDate: any;
 
   datesToHighlight = ["2020-03-22T18:30:00.000Z", "2020-03-10T18:30:00.000Z", "2020-03-05T18:30:00.000Z", "2020-03-28T18:30:00.000Z", "2020-03-14T18:30:00.000Z", "2020-03-31T18:30:00.000Z", "2020-03-08T18:30:00.000Z", "2020-03-15T18:30:00.000Z"];
 

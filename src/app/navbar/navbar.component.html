@@ -3,17 +3,17 @@
                  
         
             <div class="logo" fxFlex="10" >
-                <img src="../../assets/img/jaks_logo.svg" routerLink = "" routerLinkActive = "active">
+                <img src="../../assets/img/jaks_logo_{{iconTheme}}.svg" routerLink = "" routerLinkActive = "active">
             </div>
             <div fxFlex="90" class="actionbar" fxLayout="row" fxLayoutAlign="space-evenly start">
-                <div class="isikud"><h2><a routerLink = "/isikud" routerLinkActive = "active">Isikud</a></h2></div>
-                <div class="dokumendid"><h2><a routerLink = "/dokumendid" routerLinkActive = "active">Dokumendid</a></h2></div>
-                <div class="toimikud"><h2><a routerLink = "/toimikud" routerLinkActive = "active">Toimikud</a></h2></div>
-                <div class="ajaarvestus"><h2><a routerLink = "/ajaarvestus" routerLinkActive = "active">Ajaarvestus</a></h2></div>
+                <div class="isikud"><a routerLink = "/isikud" routerLinkActive = "active" ><h2>Isikud</h2></a></div>
+                <div class="dokumendid"><a routerLink = "/dokumendid" routerLinkActive = "active"><h2>Dokumendid</h2></a></div>
+                <div class="toimikud"><a routerLink = "/toimikud" routerLinkActive = "active"><h2>Toimikud</h2></a></div>
+                <div class="ajaarvestus"><a routerLink = "/ajaarvestus" routerLinkActive = "active"><h2>Ajaarvestus</h2></a></div>
                 <div class="user-panel" fxLayoutAlign="space-evenly">
-                    <a><mat-icon color="accent" aria-hidden="false">settings</mat-icon></a>
-                    <a><mat-icon color="primary">mail</mat-icon></a>
-                    <button *ngIf="auth.isLoggedIn()" (click)= "logout()"><mat-icon>exit_to_app</mat-icon></button>
+                    <button mat-button><mat-icon color="accent" aria-hidden="false" (click)= "toggleTheme()">settings</mat-icon></button>
+                    <button mat-button><mat-icon color="primary">mail</mat-icon></button>
+                    <button mat-button *ngIf="!auth.isLoggedIn()" (click)= "logout()"><mat-icon>exit_to_app</mat-icon></button>
                 </div>
             </div>
     </div>

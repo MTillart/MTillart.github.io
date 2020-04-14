@@ -1,12 +1,11 @@
-<div>
+<div class="container">
     <table>
         <tbody>
-           <tr *ngFor="let item of dataSource">
-            
-                <td>{{item.Id}}</td>
-                <td>{{item.Name}} {{item.Lastname}}</td>
-                <td>{{item.Phone}}</td>
-                <td>{{item.Email}}</td>
+           <tr fxLayout="row" fxLayoutGap="5px" *ngFor="let item of dataSource"> 
+                <td fxFlex="3" class="clientId">{{item.Id}}</td>
+                <td fxFlex="30" class="clientName" (click)="showText(item.Name)">{{item.Name}} {{item.Lastname}}</td>
+                <td fxFlex="26">{{item.Phone}}</td>
+                <td fxFlex="15">{{item.Email}}</td>
             </tr>
         </tbody>
     </table>

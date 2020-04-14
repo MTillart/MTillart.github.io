@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
 import { Router } from '@angular/router';
+import { ThemeService } from "src/app/theme/theme.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,17 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  iconTheme: string;
 
   constructor(
     public auth: AuthenticationService,
-    private router: Router) { }
+    private router: Router,
+    private themeService: ThemeService
+    ) { }
+
+    
 
   ngOnInit() {
+    this.iconTheme = "light";
   }
+
 
   logout(){
     console.log("Logging you out");
     this.auth.logout();
+  }
+  toggleTheme() {
+    if (this.themeService.isDarkTheme()) {
+      this.themeService.setLightTheme();
+      this.iconTheme = "light";
+    } else {
+      this.themeService.setDarkTheme();
+      this.iconTheme = "dark";
+    }
   }
 
 }

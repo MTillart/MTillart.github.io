@@ -13,7 +13,9 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
-    path: '', canActivate: [AuthGuard], children: [
+    path: '',
+    //canActivate: [AuthGuard],
+    children: [
       {path: '', component: DashboardComponent},
       { path: 'isikud', component: IsikudComponent },
       { path: 'dokumendid', component: DokumendidComponent },
