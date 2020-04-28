@@ -19,6 +19,7 @@ export class LoginComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   login() {
+    console.log("Login started....")
     this.auth.login(this.credentials).subscribe(() => {
       this.router.navigateByUrl('/');
     }, (err) => {

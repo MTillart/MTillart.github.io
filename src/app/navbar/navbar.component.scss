@@ -4,7 +4,6 @@
   padding: 10px;
 }
 .logo {
-  margin: 6px 1px 0 10px;
 
   img {
     width: 85%;
@@ -19,7 +18,7 @@
   }
 }
 .logo-active {
-  //border: solid 2px black;
+ 
 }
 .navbar {
   margin: 30px;
@@ -52,12 +51,16 @@
     color: var(--text-primary);
     text-decoration: none;
     width: 100%;
-    h2 {
+    h4 {
       margin: 0px;
 
       //color: $primary-blue;
       //margin-left: 35%;
       transform: skewX(35deg);
+      @media (max-width: 850px) {
+        font-size: 16px;
+  
+      }
     }
   }
   :hover {
@@ -68,23 +71,34 @@
   }
 }
 .user-panel {
+  display: inline-block;
   // display: inline-flex;
   // justify-content: flex-end;
   mat-icon {
-    margin-right: 30px;
+    margin-right: 20px;
     transform: skewX(35deg);
     font-size: 30px;
   }
-  mat-button {
-    width: 120px;
+  mat-slide-toggle{    
+    transform: skewX(35deg);
+    mat-icon{
+      transform: skewX(0);
+    }
   }
+  mat-button {
+    width: 120px; 
+
+  }
+}
+.toggle{
+  margin-top: 5px;
 }
 .actionbar {
   margin-right: 20px;
   //background-color: red;
 }
 .active {
-  border-bottom: 7px solid #1de9b696;
+  border-bottom: 4px solid #1de9b696;
   :hover {
     text-shadow: none;
   }

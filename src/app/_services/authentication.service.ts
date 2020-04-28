@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User, TokenResponse, TokenPayload } from '../_models/user';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -13,20 +14,20 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {}
 
   private saveToken(token: string): void {
-    localStorage.setItem('mean-token', token);
+    localStorage.setItem('token', token);
     this.token = token;
   }
 
   private getToken(): string {
     if (!this.token) {
-      this.token = localStorage.getItem('mean-token');
+      this.token = localStorage.getItem('token');
     }
     return this.token;
   }
 
   public logout(){
     this.token = '';
-    window.localStorage.removeItem('mean-token');
+    window.localStorage.removeItem('token');
     this.router.navigateByUrl('/login');
   }
 
@@ -35,7 +36,7 @@ export class AuthenticationService {
     let payload;
     if (token) {
       payload = token.split('.')[1];
-      payload = window.atob(payload);
+      payload = window.atob(payload);      
       return JSON.parse(payload);
     } else {
       return null;
@@ -44,8 +45,9 @@ export class AuthenticationService {
 
   public isLoggedIn(): boolean {
     const user = this.getUserDetails();
-    if (user) {
-      return user.exp > Date.now() / 1000;
+    if (user) {    
+       user.exp = Date.now() / 1000;
+      return true;
     } else {
       return false;
     }
@@ -55,15 +57,16 @@ export class AuthenticationService {
     let base;
   
     if (method === 'post') {
-      base = this.http.post(environment.apiUrl +`/api/${type}`, user);
+      base = this.http.post(environment.apiUrl +`/user/${type}`, user);
     } else {
-      base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`/user/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
   
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
           this.saveToken(data.token);
+     
         }
         return data;
       })
@@ -76,6 +79,9 @@ export class AuthenticationService {
   }
   
   public login(user: TokenPayload): Observable<any> {
+   const loggedIn = this.isLoggedIn();
+   console.log("LoggedIN??? "+loggedIn);
+   
     return this.request('post', 'login', user);
   }
 

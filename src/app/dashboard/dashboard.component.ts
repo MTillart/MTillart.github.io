@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MatDialog, MatDialogConfig} from "@angular/material";
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatDialog, MatDialogConfig } from "@angular/material";
 import { KalenderPopUpComponent } from '../kalender-pop-up/kalender-pop-up.component';
-import {To_Do} from '../_models/to_do'
+import { To_Do } from '../_models/to_do'
 
 @Component({
   selector: 'app-dashboard',
@@ -15,38 +15,42 @@ export class DashboardComponent implements OnInit {
 
   dataSource = DASH_DATA;
   dataSource1 = DASH_DATA1;
- 
+
   columnsToDisplay = ['Task'];
 
   constructor(
     public dialog: MatDialog) {
-      this.currentUser = localStorage.getItem('currentUser')? JSON.parse(localStorage.getItem('currentUser')) : '';
+    this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : '';
 
-   }
-// Open pop-up and configur it. Send data
-   openDialog() {
+  }
+
+  ngOnInit() {
+
+  }
+  // Open pop-up and configur it. Send data
+  openDialog() {
 
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
-    dialogConfig.height = "500px";
+    dialogConfig.height = "700px";
     dialogConfig.width = "600px";
     dialogConfig.hasBackdrop = true;
-    dialogConfig.panelClass= 'dialogBox';
+    dialogConfig.scrollStrategy;
+    dialogConfig.panelClass = 'dialogBox';
     //dialogConfig.autoFocus = true;
 
-  //   dialogConfig.data = {
-  //     id: 1,
-  //     title: 'Kalender'
-  // };
-  dialogConfig.data = DASH_DATA;
+    //   dialogConfig.data = {
+    //     id: 1,
+    //     title: 'Kalender'
+    // };
+    dialogConfig.data = DASH_DATA;
 
     this.dialog.open(KalenderPopUpComponent, dialogConfig);
-}
-
-
-  ngOnInit() {
   }
+
+
+
 
 }
 // export interface To_Do {
@@ -78,7 +82,7 @@ const DASH_DATA: To_Do[] = [
     Task: "Tõnu Tõru?",
     isDone: false
   },
-  
+
 ];
 
 export interface To_Do1 {
@@ -122,5 +126,5 @@ const DASH_DATA1: To_Do1[] = [
     Task: "Tõnu Tõru?",
     isDone: false
   },
-  
+
 ];

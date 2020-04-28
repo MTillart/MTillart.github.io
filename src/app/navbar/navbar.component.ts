@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
 import { Router } from '@angular/router';
 import { ThemeService } from "src/app/theme/theme.service";
+import { User } from '../_models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { ThemeService } from "src/app/theme/theme.service";
 })
 export class NavbarComponent implements OnInit {
   iconTheme: string;
+  user: User;
 
   constructor(
     public auth: AuthenticationService,
@@ -21,6 +23,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.iconTheme = "light";
+    this.user= this.auth.getUserDetails();
   }
 
 

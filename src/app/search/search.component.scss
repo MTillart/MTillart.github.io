@@ -5,6 +5,7 @@
 }
 
 .otsing{
+    color: var(--text-primary);
     height: 20px;
     mat-form-field{
         input{
@@ -14,8 +15,12 @@
     }
 
 .lable {
-    color: #FAFAFA;
+    color: red;
     font-size: 12px;
 }
 
 ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.3em 0px;}
+.mat-form-field-empty.mat-form-field-label {
+    color: green;
+}
+

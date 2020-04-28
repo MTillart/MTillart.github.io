@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import { AuthenticationService } from './_services/authentication.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { User } from './_models/user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
 
   currentUser: User;
 
@@ -20,10 +20,10 @@ export class AppComponent implements AfterViewInit {
     ){}
     
   title = 'loputoo';
+  ngOnInit(){
+    console.log("INIT");
+    this.currentUser= this.auth.getUserDetails();    
 
-
-  ngAfterViewInit(){
-   
- }
+  }
 
 }

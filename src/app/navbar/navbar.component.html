@@ -1,19 +1,19 @@
 <div class="mainBar">
-    <div class="navbar" fxLayout="row" fxLayoutAlign="space-evenly center">
+    <div class="navbar" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.sm="start center">
                  
         
-            <div class="logo" fxFlex="10" >
-                <img src="../../assets/img/jaks_logo_{{iconTheme}}.svg" routerLink = "" routerLinkActive = "logo-active"> 
+            <div class="logo" >
+                <img fxFlex="80" src="../../assets/img/jaks_logo_{{iconTheme}}.svg" routerLink = "" routerLinkActive = "logo-active"> 
             </div>
-            <div fxFlex="90" class="actionbar" fxLayout="row" fxLayoutAlign="space-evenly start">
-                <div class="isikud" routerLinkActive = "active"><a routerLink = "isikud"><h2>Isikud</h2></a></div>
-                <div class="dokumendid" routerLinkActive = "active"><a routerLink = "dokumendid" ><h2>Dokumendid</h2></a></div>
-                <div class="toimikud" routerLinkActive = "active"><a routerLink = "toimikud" ><h2>Toimikud</h2></a></div>
-                <div class="ajaarvestus" routerLinkActive = "active"><a routerLink = "ajaarvestus"><h2>Ajaarvestus</h2></a></div>
-                <div class="user-panel" fxLayoutAlign="space-evenly">
-                    <button mat-button><mat-icon color="accent" aria-hidden="false" (click)= "toggleTheme()">settings</mat-icon></button>
-                    <button mat-button><mat-icon color="primary">mail</mat-icon></button>
-                    <button mat-button *ngIf="!auth.isLoggedIn()" (click)= "logout()"><mat-icon>exit_to_app</mat-icon></button>
+            <div fxFlex="85" fxFlex.lt-lg="80" fxFlex.sm="70" class="actionbar" fxLayout="row" fxLayoutAlign="start center">
+                <div class="isikud" routerLinkActive = "active"><a routerLink = "isikud"><h4>Isikud</h4></a></div>
+                <div class="dokumendid" routerLinkActive = "active"><a routerLink = "dokumendid" ><h4>Dokumendid</h4></a></div>
+                <div class="toimikud" routerLinkActive = "active"><a routerLink = "toimikud" ><h4>Toimikud</h4></a></div>
+                <div class="ajaarvestus" routerLinkActive = "active"><a routerLink = "ajaarvestus"><h4>Ajaarvestus</h4></a></div>
+                <div class="user-panel" fxLayoutAlign="space-evenly">                  
+                    <mat-slide-toggle class="toggle" color="accent" (click)= "toggleTheme()"><mat-icon color="accent">invert_colors</mat-icon></mat-slide-toggle>
+                    <mat-icon color="primary">mail</mat-icon>
+                   <mat-icon *ngIf="auth.isLoggedIn()" (click)= "logout()">exit_to_app</mat-icon>
                 </div>
             </div>
     </div>

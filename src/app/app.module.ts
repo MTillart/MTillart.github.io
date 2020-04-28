@@ -25,9 +25,7 @@ import { ErrorInterceptor } from './_error.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDateAdapter } from './_helpers/custom-date-adapter';
-
-
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -74,6 +72,8 @@ import { CustomDateAdapter } from './_helpers/custom-date-adapter';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
+
   ],
   providers: [
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
