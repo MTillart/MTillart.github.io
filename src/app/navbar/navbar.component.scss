@@ -103,3 +103,12 @@
     text-shadow: none;
   }
 }
+
+
+::ng-deep .mat-slide-toggle-thumb-container, .mat-slide-toggle-thumb-container, .mat-slide-toggle-thumb, .mat-slide-toggle-ripple mat-ripple, mat-slide-toggle{
+  :hover{
+    cursor: pointer;
+  }
+  cursor: pointer;
+}
+

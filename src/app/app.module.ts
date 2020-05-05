@@ -26,6 +26,8 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDateAdapter } from './_helpers/custom-date-adapter';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { IsikuPopUpComponent } from './isiku-pop-up/isiku-pop-up.component';
+import { LisaIsikPopUpComponent } from './lisa-isik-pop-up/lisa-isik-pop-up.component';
 
 
 
@@ -42,9 +44,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     KalenderPopUpComponent,
     LoginComponent,
     RegisterComponent,
+    IsikuPopUpComponent,
+    LisaIsikPopUpComponent,
   ],
   entryComponents: [
     KalenderPopUpComponent,
+    IsikuPopUpComponent,
+    LisaIsikPopUpComponent,
   ],
   imports: [
     BrowserModule,

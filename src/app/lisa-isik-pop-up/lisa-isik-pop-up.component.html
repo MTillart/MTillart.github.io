@@ -1,0 +1,80 @@
+<!-- <h3 class="close" (click)="close()">X</h3> -->
+<h5 mat-dialog-title class="heading">Sisesta andmed</h5>
+<mat-dialog-content [formGroup]="form" (submit)="saveUser()">
+  <div class="container">
+    <mat-checkbox (click)="addCompanyForm()">Ettevõte</mat-checkbox>
+    <div *ngIf="isCompany" class="company" formGroupName="companyData">
+      <h6>Ettevõte andmed</h6>
+      <mat-form-field>
+        <input matInput placeholder="Ettevõte nimi" formControlName="companyName" id="companyName" name="companyName" required>
+        <mat-error>Täida väli</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Registrikood" formControlName="companyCode" id="companyCode" name="companyCode" required>
+        <mat-error *ngIf = "companyCode.hasError('required')">Täida väli</mat-error>
+        <mat-error *ngIf = "companyCode.hasError('pattern')">Ainult numbrid lubatud</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Ettevõte email" formControlName="companyEmail" id="companyEmail" name="companyEmail">
+        <mat-error>Täida väli</mat-error>
+      </mat-form-field>
+
+    </div>
+    
+    <div>
+      <h6 *ngIf="isCompany">Ettevõte esindaja</h6>
+      <mat-form-field>
+        <input matInput placeholder="Eesnimi" formControlName="firstname" id="firstname" name="firstname" required>
+        <mat-error>Täida väli</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Perenimi" formControlName="lastname" id="lastname" name="lastname" required>
+        <mat-error>Täida väli</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Isikukood" formControlName="idcode" id="idcode" name="idcode" required>
+        <mat-error *ngIf = "idcode.hasError('required')">Täida väli</mat-error>
+        <mat-error *ngIf = "idcode.hasError('minlength')">Peab olema 11 tähemärki</mat-error>
+        <mat-error *ngIf = "idcode.hasError('maxlength')">Woah, liiga palju tähemärke</mat-error>
+        <mat-error *ngIf = "idcode.hasError('pattern')">Ainult numbrid lubatud</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" id="email" name="email" required>
+        <mat-error *ngIf = "email.hasError('required')">Täida väli</mat-error>
+        <mat-error *ngIf = "email.hasError('email')">Ei vasta mustrile</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Telefon" formControlName="phone" id="phone" name="phone" required>
+        <mat-error *ngIf = "phone.hasError('required')">Täida väli</mat-error>
+        <mat-error *ngIf = "phone.hasError('pattern')">Ainult numbrid lubatud</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Ettevõte" formControlName="company" id="company" name="company">
+      </mat-form-field>
+    </div>
+    
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button [disabled]="!form.valid" (click)="saveFormData()" color="accent">Kinnita</button>
+
+  <button (click)="close()" mat-stroked-button color="accent">Katkesta</button>
+</mat-dialog-actions>

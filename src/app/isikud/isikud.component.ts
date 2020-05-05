@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../_models/person';
+import { Client } from '../_models/client';
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { IsikuPopUpComponent } from '../isiku-pop-up/isiku-pop-up.component';
+import { LisaIsikPopUpComponent } from '../lisa-isik-pop-up/lisa-isik-pop-up.component';
+import { ClientsService } from '../_services/clients.service';
 
 @Component({
   selector: 'app-isikud',
@@ -8,49 +12,98 @@ import { Person } from '../_models/person';
 })
 export class IsikudComponent implements OnInit {
 
+  PersonData: Client[];
   dataSource = PersonData;
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+    private clientService: ClientsService
+  ) { }
 
   ngOnInit() {
+// GET Clients Data from API
+console.log("Init for the clients");
+
+  }
+  getClients(){
+    console.log("Get clients functions activated");
+    
+    const kliendid = this.clientService.getAllClients();
+    console.log(kliendid);
+    
   }
 
-  showText(text){
-    console.log("Message:"+ text)
+  openAddClient(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.height = "600px";
+    dialogConfig.width = "350px";
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.panelClass = 'dialogBox';
+
+    this.dialog.open(LisaIsikPopUpComponent, dialogConfig);
+
   }
+
+  openClienView(clientId){
+
+    console.log("Message:"+ clientId)
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.height = "60%";
+    dialogConfig.width = "60%";
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.panelClass = 'dialogBox';
+    dialogConfig.autoFocus = true;
+
+    //   dialogConfig.data = {
+    //     id: 1,
+    //     title: 'Kalender'
+    // };
+    let obj = PersonData.find(obj => obj._Id == clientId);
+    dialogConfig.data = obj;
+  
+    this.dialog.open(IsikuPopUpComponent, dialogConfig);
+  }
+ 
 
   
 }
 
-const PersonData: Person[] = [
+const PersonData: Client[] = [
   {
-    Id: 1,
-    Name: "Mari",
-    Lastname: "Kadakas",
-    Phone: 5685265,
-    Email: "kadakamari@gmail.com"
+    _Id: "1",
+    _Firstname: "Mari",
+    _Lastname: "Kadakas",
+    _IdCode: 49110021218,
+    _Phone: 5685265,
+    _Email: "kadakamari@gmail.com"
   },
   {
-    Id: 40,
-    Name: "Konrad",
-    Lastname: "Sadam",
-    Phone: 5445668,
-    Email: "konradsadam@gmail.com"
+    _Id: "40",
+    _Firstname: "Konrad",
+    _Lastname: "Sadam",
+    _IdCode: 38502141524,
+    _Phone: 5445668,
+    _Email: "konradsadam@gmail.com"
+  },
+  {
+    _Id: "77",
+    _Firstname: "Polly",
+    _Lastname: "Zudra",
+    _IdCode: 48304241714,
+    _Phone: 445445668,
+    _Email: "zudra.polly@hotmail.com"
 
   },
   {
-    Id: 77,
-    Name: "Polly",
-    Lastname: "Zudra",
-    Phone: 445445668,
-    Email: "zudra.polly@hotmail.com"
-
-  },
-  {
-    Id: 154,
-    Name: "OÜ Päevakaja",
-    Phone: 51459527,
-    Email: "paevakaja@hotmail.com"
+    _Id: "154",
+    _Firstname: "OÜ Päevakaja",
+    _IdCode: +35114451555,
+    _Phone: 51459527,
+    _Email: "paevakaja@hotmail.com"
 
   }
 ]

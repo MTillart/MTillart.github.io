@@ -11,7 +11,7 @@ import { To_Do } from '../_models/to_do'
 
 })
 export class DashboardComponent implements OnInit {
-  public currentUser;
+  
 
   dataSource = DASH_DATA;
   dataSource1 = DASH_DATA1;
@@ -19,9 +19,9 @@ export class DashboardComponent implements OnInit {
   columnsToDisplay = ['Task'];
 
   constructor(
-    public dialog: MatDialog) {
-    this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : '';
-
+    public dialog: MatDialog
+    ) {
+    
   }
 
   ngOnInit() {
@@ -33,11 +33,10 @@ export class DashboardComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
-    dialogConfig.height = "700px";
+    dialogConfig.height = "600px";
     dialogConfig.width = "600px";
     dialogConfig.hasBackdrop = true;
-    dialogConfig.scrollStrategy;
-    dialogConfig.panelClass = 'dialogBox';
+    dialogConfig.panelClass = 'calendarBox';
     //dialogConfig.autoFocus = true;
 
     //   dialogConfig.data = {

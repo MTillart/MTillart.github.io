@@ -1,24 +1,29 @@
-<h3 class="close-cal" (click)="close()" >X</h3>
+<h3 class="close" (click)="close()">X</h3>
 <h3 mat-dialog-title>Sündmuse sisestamine</h3>
 
 
-    <mat-form-field [formGroup]="form">
-        <input matInput formControlName="task" required>
-        <mat-placeholder class="placeholder">Sisesta sündmus</mat-placeholder>
+<mat-form-field [formGroup]="form">
+    <input matInput formControlName="task" required>
+    <mat-placeholder class="placeholder">Sisesta sündmus</mat-placeholder>
 
 
-        <!-- <ul *ngFor="let item of dataArray">
+    <!-- <ul *ngFor="let item of dataArray">
         <li>{{item.Task}}</li>
     </ul> -->
-    </mat-form-field>
-<mat-dialog-content>    
-    <div class="calendar-wrapper">
-        <mat-calendar [dateClass]="dateClass()" [selected]="form.get('eventDate').value"
-            (selectedChange)="getSelectedDate($event)" #calendar [(selected)]="selectedDate">
-        </mat-calendar>
+</mat-form-field>
+<mat-dialog-content>
+    <div class="dialog_container">
+        <div class="calendar-wrapper">
+            <mat-calendar [dateClass]="dateClass()" [selected]="form.get('eventDate').value"
+                (selectedChange)="getSelectedDate($event)" #calendar [(selected)]="selectedDate">
+            </mat-calendar>
+        </div>
+
+        <div class="timepicker">
+            <ngb-timepicker [ngModel]="time" (ngModelChange)="logTime($event)"></ngb-timepicker>
+        </div>
     </div>
 
-    <ngb-timepicker [ngModel]="time" (ngModelChange)="logTime($event)" ></ngb-timepicker>
 
 </mat-dialog-content>
 <mat-dialog-actions>

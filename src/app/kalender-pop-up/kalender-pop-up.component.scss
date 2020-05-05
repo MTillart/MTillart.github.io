@@ -23,6 +23,11 @@ mat-form-field {
     display: block;
     color: var(--calendar-text-primary);
   }
+.dialog_container{
+  position: relative;
+}
+  
+
  
 .calendar-wrapper{
     width: 350px;
@@ -46,11 +51,14 @@ mat-form-field {
 .mat-focused .placeholder, .placeholder {
   color: var(--calendar-text-primary)
 }
-.close-cal{
-  float: right;
-  display: flex;
-  cursor: pointer;
+
+.timepicker{
+  position: absolute;
+  right: 30px;
+  top: 30px
+  
 }
+
 // SCROLLBAR desgine
 /* width */
 ::-webkit-scrollbar {

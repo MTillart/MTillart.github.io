@@ -1,0 +1,33 @@
+form{
+    font-size: 10px;
+    input{
+        font-size: 10px;
+    }
+}
+mat-form-field{
+    padding-left: 25px;
+}
+.mat-input-element{
+    padding-left: 5px;
+}
+.heading{
+    margin: 30px 30px 15px 30px;
+}
+.container{
+    padding: 0px 0px 0 50px;
+}
+button{
+    margin: 5px;
+    background-color: var(--calendar-primary);
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 2px solid var(--valid); /* teal 400 */
+  }
+  mat-error{
+      color: var(--error-secondary);
+      font-size: 9px;
+  }
+  
+//   .ng-invalid:not(input)  {
+//     border-left: 5px solid #a94442; /* red */
+//   }

@@ -1,0 +1,29 @@
+.close{
+    font-size: 16px;
+    float: right;
+    display: flex;
+    cursor: pointer;
+  }
+
+  // SCROLLBAR desgine
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--calendar-text-secondary); 
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--calendar-primary); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grid-primary); 
+}

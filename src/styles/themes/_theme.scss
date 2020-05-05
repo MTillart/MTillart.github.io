@@ -1,10 +1,10 @@
 // THEMING FOR ANGULAR MATERIAL ELEMENTS (checkboxes, buttons ect)
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
 
 $my-theme-primary: mat-palette($mat-indigo);
-$my-theme-accent:  mat-palette($mat-teal, A400);
+$my-theme-accent: mat-palette($mat-teal, A400);
 
 $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent);
 
@@ -13,44 +13,52 @@ $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent);
 // THEMING FOR ALL THE OTHER ELEMENTS
 // DEFAULT LIGHT THEME
 :root {
-    /* Colors */
-    --text-primary: #1853AB;
-    --text-secondary: #000000;
-    --text-grey: #E7E9F1;
-  
-    --background-primary: #d3d3d3;
-    --background-secondary: #FEFEFE;
-  
-    --grid-primary: #B4B6BB;
-  
-    --calendar-bg: #818A98;
-    --calendar-text-primary: #FFFFFF;
-    --calendar-text-secondary: #C2C8D2;
-    --calendar-primary: #4D6EA1;
-    --error-secondary: #ffcecc;
-  
-    /* Shadows */
-    --background-hover-shadow: 2px 4px 4px rgba(0, 0, 0, 0.40);
-  }
-  
-  body {
-    background: var(--background-primary);
-  }
-  
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  // dialog-box global style
-.dialogBox {
-  mat-dialog-container {
-    background-color:var(--calendar-bg) ;
-    color: var(--calendar-text-primary);
+  /* Colors */
+  --text-primary: #1853ab;
+  --text-secondary: #000000;
+  --text-grey: #e7e9f1;
 
+  --background-primary: #d3d3d3;
+  --background-secondary: #fefefe;
+
+  --grid-primary: #b4b6bb;
+
+  --calendar-bg: #818a98;
+  --calendar-text-primary: #ffffff;
+  --calendar-text-secondary: #c2c8d2;
+  --calendar-primary: #4d6ea1;
+  --error-secondary: #ffa29e;
+  --valid: #1DE9B6;
+
+  /* Shadows */
+  --background-hover-shadow: 2px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  background: var(--background-primary);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+// dialog-box global style
+.calendarBox {
+  mat-dialog-container {
+    background-color: var(--calendar-bg);
+    color: var(--calendar-text-primary);
   }
-  .active{
+
+  .active {
     background-color: red;
   }
-  
+}
+.dialogBox {
+  mat-dialog-container {
+    overflow-x: hidden; //no scrollbar
+    background-color: var(--calendar-bg);
+    color: var(--calendar-text-primary);
+    padding: 0;
+  }
 }

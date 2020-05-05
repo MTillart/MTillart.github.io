@@ -1,0 +1,41 @@
+.container{
+    position: relative;
+   
+}
+.addMargin{
+    position: absolute;
+    right: 0;
+    margin: 20px;
+}
+.info_sidebar{
+    width: 30%;
+    height: 60vh;
+    //background-color: red;
+    border-right: 2px solid green;
+}
+.details{
+    font-size: 14px;
+    padding: 53px 10px 0 30px ;
+
+}
+ul li{
+    list-style-type: none;
+}
+.main_panel{
+    padding: 15px 10px 0 20px;
+    
+}
+.open_cases{
+    font-size: 14px;
+    padding: 0 10px 30px 30px ;
+}
+.bottom_class{
+    padding-top:50%;
+    color: var(--calendar-text-secondary);
+
+}
+.closed_cases{
+    font-size: 10px;
+    padding: 0 10px 10px 30px ;
+}
+

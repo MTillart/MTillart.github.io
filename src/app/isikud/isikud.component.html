@@ -1,12 +1,16 @@
-<div class="container">
+
+<div class="client_container">
+    <mat-icon (click)=openAddClient() color="accent">add_box</mat-icon>
     <table>
         <tbody>
            <tr fxLayout="row" fxLayoutGap="5px" *ngFor="let item of dataSource"> 
-                <td fxFlex="3" class="clientId">{{item.Id}}</td>
-                <td fxFlex="30" class="clientName" (click)="showText(item.Name)">{{item.Name}} {{item.Lastname}}</td>
-                <td fxFlex="26">{{item.Phone}}</td>
-                <td fxFlex="15">{{item.Email}}</td>
+                <td fxFlex="3" class="clientId">{{item._Id}}</td>
+                <td fxFlex="30" class="clientName" (click)="openClienView(item._Id)">{{item._Firstname}} {{item._Lastname}}</td>
+                <td fxFlex="26">{{item._Phone}}</td>
+                <td fxFlex="15">{{item._Email}}</td>
             </tr>
         </tbody>
     </table>
+    <button (click)= getClients()>KLIENDID</button>
 </div>
+

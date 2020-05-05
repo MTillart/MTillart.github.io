@@ -1,0 +1,31 @@
+
+<div class="container" fxLayout="row">
+<h3 class="close addMargin" (click)="close()">X</h3>    
+    <div class="info_sidebar">
+        <ul class="details">
+            <li>{{dataPerson._Firstname}} {{dataPerson._Lastname}}</li>
+            <li>{{dataPerson._IdCode}}</li>
+            <li>{{dataPerson._Phone}}</li>
+            <li>{{dataPerson._Email}}</li>
+        </ul>
+
+    </div>
+    <div class="main_panel" fxLayout="column">
+        <h5>Avatud toimikud<mat-icon color="accent">add_box</mat-icon>
+        </h5>
+        <ul class="open_cases">
+            <li>Toimik 1</li>
+            <li>Liiklustrahv</li>
+            <li>Toimik 13</li>
+        </ul>
+        <div class="bottom_class">
+        <h5>Suletud toimikud</h5>
+        <ul class="closed_cases">
+            <li>Toimik 22</li>
+            <li>Liiklustrahv#74</li>
+            <li>Toimik 13</li>
+        </ul>
+    </div>
+</div>
+
+</div>
