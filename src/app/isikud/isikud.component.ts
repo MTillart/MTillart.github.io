@@ -20,14 +20,19 @@ export class IsikudComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // GET Clients Data from API
-    console.log("Init for the clients");
-    this.clientService.getAllClients()
-    .subscribe( data => this.clientsData = data);
-    this.getClients();
+     this.getClients();
 
   }
   getClients() {
+    console.log("Init for the clients");
+    this.clientService.getAllClients()
+    .subscribe( data => {
+      this.clientsData = data},
+      error => {
+        console.log(error);
+        
+      }
+      );
     
     console.log(this.clientsData);
     
@@ -42,7 +47,11 @@ export class IsikudComponent implements OnInit {
     dialogConfig.hasBackdrop = true;
     dialogConfig.panelClass = 'dialogBox';
 
-    this.dialog.open(LisaIsikPopUpComponent, dialogConfig);
+    this.dialog.open(LisaIsikPopUpComponent, dialogConfig).afterClosed().subscribe(result => {
+      console.log("Dialog closed");
+      
+      this.getClients();
+    });
 
   }
 
@@ -65,45 +74,16 @@ export class IsikudComponent implements OnInit {
     let obj = this.clientsData.find(obj => obj._id == clientId);
     dialogConfig.data = obj;
 
-    this.dialog.open(IsikuPopUpComponent, dialogConfig);
+    this.dialog.open(IsikuPopUpComponent, dialogConfig).afterClosed().subscribe(result => {
+      console.log("Dialog closed");
+      
+      this.getClients();
+    });
+  
+
   }
 
+  
 
 
 }
-
-// const PersonData: Client[] = [
-//   {
-//     _Id: "1",
-//     _Firstname: "Mari",
-//     _Lastname: "Kadakas",
-//     _IdCode: 49110021218,
-//     _Phone: 5685265,
-//     _Email: "kadakamari@gmail.com"
-//   },
-//   {
-//     _Id: "40",
-//     _Firstname: "Konrad",
-//     _Lastname: "Sadam",
-//     _IdCode: 38502141524,
-//     _Phone: 5445668,
-//     _Email: "konradsadam@gmail.com"
-//   },
-//   {
-//     _Id: "77",
-//     _Firstname: "Polly",
-//     _Lastname: "Zudra",
-//     _IdCode: 48304241714,
-//     _Phone: 445445668,
-//     _Email: "zudra.polly@hotmail.com"
-
-//   },
-//   {
-//     _Id: "154",
-//     _Firstname: "OÜ Päevakaja",
-//     _IdCode: +35114451555,
-//     _Phone: 51459527,
-//     _Email: "paevakaja@hotmail.com"
-
-//   }
-// ]

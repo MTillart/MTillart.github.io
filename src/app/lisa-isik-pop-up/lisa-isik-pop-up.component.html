@@ -1,8 +1,8 @@
 <!-- <h3 class="close" (click)="close()">X</h3> -->
 <h5 mat-dialog-title class="heading">Sisesta andmed</h5>
-<mat-dialog-content [formGroup]="form" (submit)="saveUser()">
+<mat-dialog-content [formGroup]="form" (submit)="saveUser()" >
   <div class="container">
-    <mat-checkbox (click)="addCompanyForm()">Ettevõte</mat-checkbox>
+    <!-- <mat-checkbox (click)="addCompanyForm()" formControlName="isCompany">Ettevõte</mat-checkbox> -->
     <div *ngIf="isCompany" class="company" formGroupName="companyData">
       <h6>Ettevõte andmed</h6>
       <mat-form-field>
@@ -26,25 +26,18 @@
     <div>
       <h6 *ngIf="isCompany">Ettevõte esindaja</h6>
       <mat-form-field>
-        <input matInput placeholder="Eesnimi" formControlName="firstname" id="firstname" name="firstname" required>
+        <input matInput placeholder="Nimi" formControlName="name" id="name" name="name" required>
         <mat-error>Täida väli</mat-error>
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="Perenimi" formControlName="lastname" id="lastname" name="lastname" required>
-        <mat-error>Täida väli</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Isikukood" formControlName="idcode" id="idcode" name="idcode" required>
-        <mat-error *ngIf = "idcode.hasError('required')">Täida väli</mat-error>
-        <mat-error *ngIf = "idcode.hasError('minlength')">Peab olema 11 tähemärki</mat-error>
-        <mat-error *ngIf = "idcode.hasError('maxlength')">Woah, liiga palju tähemärke</mat-error>
-        <mat-error *ngIf = "idcode.hasError('pattern')">Ainult numbrid lubatud</mat-error>
+        <input matInput placeholder="Isikukood" formControlName="idCode" id="idCode" name="idCode" required>
+        <mat-error *ngIf = "idCode.hasError('required')">Täida väli</mat-error>
+        <mat-error *ngIf = "idCode.hasError('minlength')">Peab olema 11 tähemärki</mat-error>
+        <mat-error *ngIf = "idCode.hasError('maxlength')">Woah, liiga palju tähemärke</mat-error>
+        <mat-error *ngIf = "idCode.hasError('pattern')">Ainult numbrid lubatud</mat-error>
       </mat-form-field>
     </div>
 
@@ -69,12 +62,20 @@
         <input matInput placeholder="Ettevõte" formControlName="company" id="company" name="company">
       </mat-form-field>
     </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Aadress" formControlName="address" id="address" name="address" required>
+        <mat-error>Täida väli</mat-error>
+      </mat-form-field>
+    </div>
     
 
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-stroked-button [disabled]="!form.valid" (click)="saveFormData()" color="accent">Kinnita</button>
+  <button mat-stroked-button *ngIf="!editData" [disabled]="!form.valid" (click)="saveFormData()" color="accent">Kinnita</button>
+  <button mat-stroked-button *ngIf="editData"[disabled]="!form.valid" (click)="editFormData(editData._id)" color="accent">Kinnita muudatused</button>
 
   <button (click)="close()" mat-stroked-button color="accent">Katkesta</button>
 </mat-dialog-actions>

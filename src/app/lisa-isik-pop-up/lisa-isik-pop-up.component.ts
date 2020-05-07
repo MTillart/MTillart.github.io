@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl, Validators, MinLengthValidator } from '@angular/forms';
 import { Client } from '../_models/client';
+import { ClientsService } from '../_services/clients.service';
 
 @Component({
   selector: 'app-lisa-isik-pop-up',
@@ -11,53 +12,76 @@ import { Client } from '../_models/client';
 export class LisaIsikPopUpComponent implements OnInit {
 
   form: FormGroup;
-  firstname: string;
   numberPatter: '/^[0-9]*$/';
   isCompany: boolean;
   id: string;
+  editData: Client;
 
   reqMessage: string;
+  editMode: boolean;
 
   constructor(
     private dialogRef: MatDialogRef<LisaIsikPopUpComponent>,
     private fb: FormBuilder,
+    private clientService: ClientsService,
+    @Inject(MAT_DIALOG_DATA) data,
   ) {
+    if (data) {
+      this.editData = data;
+      this.editMode = true;
+
+      console.log(this.editData._id);
+
+    }
+    this.editMode = false;
     this.isCompany = false;
   }
 
   ngOnInit() {
     console.log("___________");
-    console.log("IsCompany: "+this.isCompany);
-    
 
     if (this.isCompany) {
+      console.log("IsCompany: " + this.isCompany);
       this.form = this.fb.group({
-        firstname: ['', Validators.required],
-        lastname: ['', Validators.required],
-        idcode: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
-        email: ['', [Validators.required, Validators.email]],
-        phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-        company: [''],
         companyData: this.fb.group({
           companyName: ['', Validators.required],
           companyCode: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
           companyEmail: [''],
-        })
-      });
-
-    } else {
-      this.form = this.fb.group({
-        firstname: ['', Validators.required],
-        lastname: ['', Validators.required],
-        idcode: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+        }),
+        name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+        idCode: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+        isCompany: [true],
         phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
         company: [''],
+        address: [''],
+
+      });
+
+    } else if (this.editData) {
+      this.form = this.fb.group({
+        name: [this.editData.name, Validators.required],
+        email: [this.editData.email, [Validators.required, Validators.email]],
+        idCode: [this.editData.idCode, [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+        isCompany: [false],
+        phone: [this.editData.phone, [Validators.required, Validators.pattern('^[0-9]*$')]],
+        company: [this.editData.company],
+        address: [this.editData.address],
+      });
+    } else {
+      this.form = this.fb.group({
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        idCode: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+        isCompany: [true],
+        phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+        company: [''],
+        address: [''],
       });
     }
   }
 
-  get idcode() { return this.form.get('idcode'); }
+  get idCode() { return this.form.get('idCode'); }
   get email() { return this.form.get('email'); }
   get phone() { return this.form.get('phone'); }
   get companyCode() { return this.form.get('companyData.companyCode'); }
@@ -73,27 +97,65 @@ export class LisaIsikPopUpComponent implements OnInit {
   }
 
   saveFormData() {
-    // if (this.form.dirty && this.form.valid) {
-    //   this.id = "10";
-    //   const client = new Client(
-    //     this.id, 
-    //     this.form.value.firstname,
-    //     this.form.value.lastname,
-    //     this.form.value.idCode,
-    //     this.form.value.phone,
-        
-    //   );
+    if (this.form.dirty && this.form.valid) {
+      const client = new Client(
 
+        this.form.value.name,
+        this.form.value.email,
+        this.form.value.idCode,
+        this.form.value.phone,
+        this.form.value.isCompany,
+        this.form.value.address,
+        this.form.value.company
 
+      );
+      console.log("Client object sent: ");
 
+      console.log(client);
 
-    //   console.log(
-    //     `
-    //     Name: ${this.form.value.firstname}
-    //     Email: ${this.form.value.email}
-    //     Email: ${this.form.value.email}
-    //     `);
+      this.clientService.addClient(client)
+        .toPromise()
+        .then(
+          data => {
+            console.log("_____________");
+            console.log(data);
+          },
+          err => {
+            throw (err)
+          })
+    }
+    this.dialogRef.close();
 
-    // }
+  }
+  editFormData(clientId) {
+    if (this.form.valid) {
+      const client = new Client(
+
+        this.form.value.name,
+        this.form.value.email,
+        this.form.value.idCode,
+        this.form.value.phone,
+        this.form.value.isCompany,
+        this.form.value.address,
+        this.form.value.company
+
+      );
+      console.log("Client object chanaged: ");
+
+      console.log(client);
+
+      this.clientService.changeClient(clientId, client)
+        .toPromise()
+        .then(
+          data => {
+            console.log("_____________");
+            console.log(data);
+          },
+          err => {
+            throw (err)
+          })
+    }
+    this.dialogRef.close();
+
   }
 }

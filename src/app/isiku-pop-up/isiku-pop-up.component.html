@@ -1,3 +1,5 @@
+<mat-dialog-content>
+
 
 <div class="container" fxLayout="row">
 <h3 class="close addMargin" (click)="close()">X</h3>    
@@ -31,3 +33,8 @@
 </div>
 
 </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+<button mat-button (click)=changeClient(dataPerson._id)>Muuda andmeid</button>
+<button mat-button (click)=deleteClient(dataPerson._id)>Kustuta klient</button>
+</mat-dialog-actions>

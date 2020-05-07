@@ -28,6 +28,7 @@ import { CustomDateAdapter } from './_helpers/custom-date-adapter';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { IsikuPopUpComponent } from './isiku-pop-up/isiku-pop-up.component';
 import { LisaIsikPopUpComponent } from './lisa-isik-pop-up/lisa-isik-pop-up.component';
+import { TokenInterceptor } from './_services/interceptor.service';
 
 
 
@@ -82,7 +83,7 @@ import { LisaIsikPopUpComponent } from './lisa-isik-pop-up/lisa-isik-pop-up.comp
 
   ],
   providers: [
-        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
         {provide: MAT_DATE_LOCALE, useValue: 'est'},
         {provide: DateAdapter, useClass: CustomDateAdapter },
 
