@@ -12,8 +12,7 @@ import { ClientsService } from '../_services/clients.service';
 })
 export class IsikudComponent implements OnInit {
 
-  PersonData: Client[];
-  dataSource = PersonData;
+  clientsData: Client[];
 
   constructor(
     public dialog: MatDialog,
@@ -21,19 +20,20 @@ export class IsikudComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-// GET Clients Data from API
-console.log("Init for the clients");
+    // GET Clients Data from API
+    console.log("Init for the clients");
+    this.clientService.getAllClients()
+    .subscribe( data => this.clientsData = data);
+    this.getClients();
 
   }
-  getClients(){
-    console.log("Get clients functions activated");
+  getClients() {
     
-    const kliendid = this.clientService.getAllClients();
-    console.log(kliendid);
+    console.log(this.clientsData);
     
   }
 
-  openAddClient(){
+  openAddClient() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
@@ -46,9 +46,9 @@ console.log("Init for the clients");
 
   }
 
-  openClienView(clientId){
+  openClienView(clientId) {
 
-    console.log("Message:"+ clientId)
+    console.log("Message:" + clientId)
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
@@ -62,48 +62,48 @@ console.log("Init for the clients");
     //     id: 1,
     //     title: 'Kalender'
     // };
-    let obj = PersonData.find(obj => obj._Id == clientId);
+    let obj = this.clientsData.find(obj => obj._id == clientId);
     dialogConfig.data = obj;
-  
+
     this.dialog.open(IsikuPopUpComponent, dialogConfig);
   }
- 
 
-  
+
+
 }
 
-const PersonData: Client[] = [
-  {
-    _Id: "1",
-    _Firstname: "Mari",
-    _Lastname: "Kadakas",
-    _IdCode: 49110021218,
-    _Phone: 5685265,
-    _Email: "kadakamari@gmail.com"
-  },
-  {
-    _Id: "40",
-    _Firstname: "Konrad",
-    _Lastname: "Sadam",
-    _IdCode: 38502141524,
-    _Phone: 5445668,
-    _Email: "konradsadam@gmail.com"
-  },
-  {
-    _Id: "77",
-    _Firstname: "Polly",
-    _Lastname: "Zudra",
-    _IdCode: 48304241714,
-    _Phone: 445445668,
-    _Email: "zudra.polly@hotmail.com"
+// const PersonData: Client[] = [
+//   {
+//     _Id: "1",
+//     _Firstname: "Mari",
+//     _Lastname: "Kadakas",
+//     _IdCode: 49110021218,
+//     _Phone: 5685265,
+//     _Email: "kadakamari@gmail.com"
+//   },
+//   {
+//     _Id: "40",
+//     _Firstname: "Konrad",
+//     _Lastname: "Sadam",
+//     _IdCode: 38502141524,
+//     _Phone: 5445668,
+//     _Email: "konradsadam@gmail.com"
+//   },
+//   {
+//     _Id: "77",
+//     _Firstname: "Polly",
+//     _Lastname: "Zudra",
+//     _IdCode: 48304241714,
+//     _Phone: 445445668,
+//     _Email: "zudra.polly@hotmail.com"
 
-  },
-  {
-    _Id: "154",
-    _Firstname: "OÜ Päevakaja",
-    _IdCode: +35114451555,
-    _Phone: 51459527,
-    _Email: "paevakaja@hotmail.com"
+//   },
+//   {
+//     _Id: "154",
+//     _Firstname: "OÜ Päevakaja",
+//     _IdCode: +35114451555,
+//     _Phone: 51459527,
+//     _Email: "paevakaja@hotmail.com"
 
-  }
-]
+//   }
+// ]

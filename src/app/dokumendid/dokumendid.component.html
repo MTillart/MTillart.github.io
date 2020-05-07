@@ -1,1 +1,14 @@
-<p>dokumendid works!</p>
+<div class="form-group">
+    <label for="file">Vali fail üleslaadimiseks</label>
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+</div>
+<div>
+    <ul>
+        <li>dokuemndi-plank.doc<mat-icon>arrow_downward</mat-icon></li>
+        <li>toimiku-põhi.doc<mat-icon>arrow_downward</mat-icon></li>
+        <li>kirja-plank.doc<mat-icon>arrow_downward</mat-icon></li>
+        <li>firma.doc<mat-icon>arrow_downward</mat-icon></li>
+    </ul>
+</div>

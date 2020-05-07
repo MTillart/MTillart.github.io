@@ -13,42 +13,20 @@ import { Client } from '../_models/client';
 })
 export class ClientsService {
 
+  listOfClients: Client[];
+
   constructor(private http: HttpClient, private router: Router, private auth: AuthenticationService) { }
 
-  public getAllClients(): Observable<any> {
-    console.log("Getting the clients data...");
-    
-    const loggedIn = this.auth.isLoggedIn();
-    console.log("LoggedIN??? "+loggedIn);
-    
-     return this.request();
-   }
-
-   private request(): Observable<any> {
-    let base;
-
-    console.log("Requesting data...");
-    
-    
-    base = this.http.get(environment.apiUrl +`/clients`, { headers: { Authorization: `Bearer ${this.auth.getToken()}` }});
-
+  public getAllClients(): Observable<Client[]> {
   
-    const request = base.pipe(
-      map((data: Array<Client>) => {
-        if (Client) {
-          console.log("Returning Array");
-          
-          return Array<Client>();
-     
-        }
-        console.log("There was error");
-        
-        return console.error();
-        
-      })
-    );
+    return this.http.get<Client[]>(environment.apiUrl +`/clients`, { headers: { Authorization: `Bearer ${this.auth.getToken()}` }});
+
+  }
+
+  public addClient(): Observable<Client> {
   
-    return request;
+    return this.http.get<Client>(environment.apiUrl +`/client`, { headers: { Authorization: `Bearer ${this.auth.getToken()}` }});
+
   }
 
 
