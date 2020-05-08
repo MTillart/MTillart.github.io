@@ -16,6 +16,10 @@ export class KalenderPopUpComponent implements OnInit {
   dataArray: Array<To_Do>;
   time = {hour: 13, minute: 30};
 
+  theDate: Date;
+  theHour: number;
+  theMinutes: number;
+
   eventDate: any;
   eventTime: any;
   testDate: any;
@@ -30,7 +34,6 @@ export class KalenderPopUpComponent implements OnInit {
       this.form = new FormGroup({
       task: new FormControl(),
       eventDate: new FormControl(new  Date()),
-      eventTime: new FormControl(),
     })
 
       this.dataArray = data;
@@ -45,8 +48,35 @@ export class KalenderPopUpComponent implements OnInit {
 
   save() {
     console.log("saving");
+    if (!this.theDate){
+      console.log("No date selected");
+      this.theDate = new Date();
+      console.log(this.theDate);
+
+      
+     
+    }else if (!this.theHour ){
+      console.log("No hour selected");
+      this.theHour = this.time.hour;
+    }else if (!this.theMinutes){
+      console.log("No time selected");
+      this.theMinutes = this.time.minute;
+    }else {
+      console.log("All selected");
+      
+    }
+
+    console.log("adding time...");
+    
+
+    this.theDate.setHours(this.theHour);
+    this.theDate.setMinutes(this.theMinutes);
+
+    this.form.get('eventDate').setValue(this.theDate);
 
     console.log(this.form.value);
+
+
     this.dialogRef.close(this.form.value);
    
   }
@@ -71,12 +101,15 @@ export class KalenderPopUpComponent implements OnInit {
   }
 
   getSelectedDate(event){
-    console.log(event);
-    this.form.get('eventDate').setValue(event);
+    //event.setHour(12);
+    this.theDate = event;
+    //this.theDate.setHours(5);
+
+    //this.form.get('eventDate').setValue(event);
   }
   logTime(event){
-    this.form.get('eventTime').setValue(event);
-    console.log(event);
+    this.theHour = event.hour;
+    this.theMinutes = event.minute;
     
   }
 

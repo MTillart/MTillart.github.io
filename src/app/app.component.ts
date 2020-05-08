@@ -22,7 +22,9 @@ export class AppComponent implements OnInit {
   title = 'loputoo';
   ngOnInit(){
     console.log("INIT");
-    this.currentUser= this.auth.getUserDetails();    
+    this.currentUser= this.auth.getUserDetails();
+    console.log("CU: "+this.currentUser);
+        
 
   }
 

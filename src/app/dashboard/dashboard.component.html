@@ -29,11 +29,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="">
+    <tr *ngFor="let item of calendarData">
 
       <td>
-        <mat-checkbox [checked]="item.isDone"></mat-checkbox>
-        {{item.Task}}
+        <h5>{{item.eventDate | date:'MMMM d'}}</h5>
+        
+        <p><span>{{item.eventDate | date:'hh:mm '}} </span> {{item.task}}</p>
       </td>
     </tr>
 

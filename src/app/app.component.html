@@ -1,4 +1,4 @@
-<div *ngIf="auth.isLoggedIn()">{{currentUser.firstName}} {{currentUser.lastName}}</div>
+<!-- <div *ngIf="auth.isLoggedIn()">{{currentUser.firstName}} {{currentUser.lastName}}</div> -->
 <!-- Kui authGuard on peal eemalda hüüumärgid currentUser-ilt -->
 <app-navbar *ngIf="auth.isLoggedIn()"></app-navbar>
 <app-search *ngIf="auth.isLoggedIn()"></app-search>
