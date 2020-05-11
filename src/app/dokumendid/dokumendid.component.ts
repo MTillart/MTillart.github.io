@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from '../_services/file-upload.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dokumendid',
@@ -11,6 +12,8 @@ export class DokumendidComponent implements OnInit {
   constructor(private fileUploadService: FileUploadService) { 
     
   }
+
+
 
   fileToUpload: File = null;
 

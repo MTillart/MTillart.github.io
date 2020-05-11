@@ -1,5 +1,5 @@
 export interface CalendarDate {
     Task: string;
-    Date: Date;
-    Time: number;
+    calDate: Date;
+    Time: string;
   }

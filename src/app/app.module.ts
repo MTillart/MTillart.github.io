@@ -29,6 +29,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { IsikuPopUpComponent } from './isiku-pop-up/isiku-pop-up.component';
 import { LisaIsikPopUpComponent } from './lisa-isik-pop-up/lisa-isik-pop-up.component';
 import { TokenInterceptor } from './_services/interceptor.service';
+import { TimerComponent } from './timer/timer.component';
 
 
 
@@ -47,6 +48,7 @@ import { TokenInterceptor } from './_services/interceptor.service';
     RegisterComponent,
     IsikuPopUpComponent,
     LisaIsikPopUpComponent,
+    TimerComponent,
   ],
   entryComponents: [
     KalenderPopUpComponent,
