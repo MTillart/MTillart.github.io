@@ -33,6 +33,7 @@ import { TimerComponent } from './timer/timer.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
