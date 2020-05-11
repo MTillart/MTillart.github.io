@@ -81,7 +81,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <div *ngIf=\"auth.isLoggedIn()\">{{currentUser.firstName}} {{currentUser.lastName}}</div> -->\n<!-- Kui authGuard on peal eemalda hüüumärgid currentUser-ilt -->\n<app-navbar *ngIf=\"auth.isLoggedIn()\"></app-navbar>\n<app-search *ngIf=\"auth.isLoggedIn()\"></app-search>\n\n<router-outlet>\n    \n</router-outlet>\n";
+    __webpack_exports__["default"] = "<!-- <div *ngIf=\"auth.isLoggedIn()\">{{currentUser.firstName}} {{currentUser.lastName}}</div> -->\n<!-- Kui authGuard on peal eemalda hüüumärgid currentUser-ilt -->\n<app-navbar *ngIf=\"auth.isLoggedIn()\"></app-navbar>\n<app-search *ngIf=\"auth.isLoggedIn()\"></app-search>\n\n<router-outlet>\n\n  <app-timer></app-timer>\n    \n</router-outlet>\n";
     /***/
   },
 
@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"dashboard\" fxLayout=\"row\" fxLayoutAlign=\"space-between start\">\r\n\r\n<table >\r\n  <thead>\r\n    <tr>\r\n      <td>Ülesanded</td>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <td><mat-icon>home</mat-icon></td>\r\n    </tr>\r\n    <tr *ngFor=\"let item of dataSource1; let i = index\">\r\n\r\n      <td>\r\n        <mat-checkbox class=\"checkBox\" [checked]=\"item.isDone\"></mat-checkbox>\r\n        {{item.Task}}\r\n        \r\n      </td>\r\n    </tr>\r\n\r\n  </tbody>\r\n</table>\r\n\r\n<table>\r\n  <thead>\r\n    <tr> \r\n      <td class=\"kalender\">Kalender <a (click)=\"openDialog()\"><mat-icon>calendar_today</mat-icon></a></td>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let item of calendarData\">\r\n\r\n      <td>\r\n        <h5>{{item.eventDate | date:'MMMM d'}}</h5>\r\n        \r\n        <p><span>{{item.eventDate | date:'hh:mm '}} </span> {{item.task}}</p>\r\n      </td>\r\n    </tr>\r\n\r\n  </tbody>\r\n</table>\r\n\r\n<table>\r\n  <thead>\r\n    <tr>\r\n      <td>Käimas olevad tööd</td>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"\">\r\n      <td>\r\n        <mat-checkbox [checked]=\"item.isDone\"></mat-checkbox>\r\n        {{item.Task}}\r\n      </td>\r\n    </tr>\r\n\r\n  </tbody>\r\n</table>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"dashboard\" fxLayout=\"row\" fxLayoutAlign=\"space-between start\">\r\n\r\n  <table>\r\n    <thead>\r\n      <tr>\r\n        <td>Ülesanded</td>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td>\r\n          <mat-form-field *ngIf=\"isAddTask\" [formGroup]=\"form\">\r\n            <input matInput placeholder=\"Ülesanne\" formControlName=\"toDoTask\" id=\"toDoTask\" name=\"toDoTask\" required>\r\n            <mat-error>Täida väli</mat-error>\r\n          </mat-form-field>\r\n          <mat-icon *ngIf=\"!isAddTask\" (click)=\"openAddTask()\" class=\"icon\">add</mat-icon>\r\n          <mat-icon color=\"accent\" *ngIf=\"isAddTask\" (click)=\"openAddTask()\" class=\"icon\">save</mat-icon>\r\n          <mat-icon color=\"accent\" *ngIf=\"isAddTask\" (click)=\"closeAddTask()\" class=\"icon\">clear</mat-icon>\r\n        </td>\r\n      </tr>\r\n      <tr *ngFor=\"let item of dataSource1; let i = index\">\r\n        <td>\r\n          <mat-checkbox class=\"checkBox\" [checked]=\"item.isDone\"></mat-checkbox>\r\n          {{item.Task}}\r\n\r\n        </td>\r\n      </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n\r\n  <table>\r\n    <thead>\r\n      <tr>\r\n        <td class=\"kalender\">Kalender <a (click)=\"openDialog()\">\r\n            <mat-icon>calendar_today</mat-icon>\r\n          </a></td>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let item of calendarData\">\r\n\r\n        <td>\r\n          <h5>{{item.eventDate | date:'MMMM d'}}</h5>\r\n\r\n          <p><span>{{item.eventDate | date:'hh:mm '}} </span> {{item.task}}</p>\r\n        </td>\r\n      </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n\r\n  <table>\r\n    <thead>\r\n      <tr>\r\n        <td>Käimas olevad tööd</td>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"\">\r\n        <td>\r\n          <mat-checkbox [checked]=\"item.isDone\"></mat-checkbox>\r\n          {{item.Task}}\r\n        </td>\r\n      </tr>\r\n\r\n    </tbody>\r\n  </table>\r\n</div>";
     /***/
   },
 
@@ -282,6 +282,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<div class=\"otsing\" fxLayout=\"row\" fxLayoutAlign=\"end center\"> \n    <mat-form-field appearance=\"outline\">\n        <input matInput placeholder=\"otsing... \">\n       </mat-form-field>  \n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/timer/timer.component.html":
+  /*!**********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/timer/timer.component.html ***!
+    \**********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTimerTimerComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div>\n  <div fxLayout=\"row\" fxLayoutAlign=\"end start\" class=\"timerContainer\">\n\n    <div class=\"clockIcon\">\n      <mat-icon (click)=\"toggleExtendedView()\">timer</mat-icon>\n    </div>\n    <div class=\"extendedView\" *ngIf=\"extendView\">\n      <form [formGroup]=\"form\">\n        <mat-form-field>\n          <input matInput type=\"text\" placeholder=\"Tegevus\" [formControl]=\"timedTask\">\n        </mat-form-field>\n\n        <mat-form-field class=\"example-full-width\">\n          <mat-label>Projekt/Klient</mat-label>\n          <input type=\"text\" matInput [formControl]=\"clientName\" [matAutocomplete]=\"auto\">\n          <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\n            <mat-option *ngFor=\"let item of filteredOptions | async\" [value]=\"item\">\n              {{item.name}}\n            </mat-option>\n          </mat-autocomplete>\n        </mat-form-field>\n      </form>\n      <h5>Aeg:{{time * 1000| date:'H:mm:ss':'UTC'}}</h5>\n      <button (click)='startTimer()'><mat-icon>play_arrow</mat-icon></button>\n      <button (click)='pauseTimer()'><mat-icon>pause</mat-icon></button>\n      <button (click)='stopTimer()'><mat-icon>stop</mat-icon></button>\n    </div>\n\n  </div>\n</div>";
     /***/
   },
 
@@ -1070,6 +1090,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     //       this.address = this.address
     //   }
 
+    /***/
+
+  },
+
+  /***/
+  "./src/app/_models/timerTask.ts":
+  /*!**************************************!*\
+    !*** ./src/app/_models/timerTask.ts ***!
+    \**************************************/
+
+  /*! exports provided: TimerTask */
+
+  /***/
+  function srcApp_modelsTimerTaskTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TimerTask", function () {
+      return TimerTask;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var TimerTask = function TimerTask(task, client, time) {
+      _classCallCheck(this, TimerTask);
+
+      this.timedTask = task;
+      this.clientName = client;
+      this.time = time;
+    };
     /***/
 
   },
@@ -2029,13 +2086,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _services_interceptor_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
     /*! ./_services/interceptor.service */
     "./src/app/_services/interceptor.service.ts");
+    /* harmony import */
+
+
+    var _timer_timer_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+    /*! ./timer/timer.component */
+    "./src/app/timer/timer.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"], _search_search_component__WEBPACK_IMPORTED_MODULE_10__["SearchComponent"], _isikud_isikud_component__WEBPACK_IMPORTED_MODULE_11__["IsikudComponent"], _dokumendid_dokumendid_component__WEBPACK_IMPORTED_MODULE_12__["DokumendidComponent"], _toimikud_toimikud_component__WEBPACK_IMPORTED_MODULE_13__["ToimikudComponent"], _ajaarvestus_ajaarvestus_component__WEBPACK_IMPORTED_MODULE_14__["AjaarvestusComponent"], _kalender_pop_up_kalender_pop_up_component__WEBPACK_IMPORTED_MODULE_15__["KalenderPopUpComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"], _isiku_pop_up_isiku_pop_up_component__WEBPACK_IMPORTED_MODULE_23__["IsikuPopUpComponent"], _lisa_isik_pop_up_lisa_isik_pop_up_component__WEBPACK_IMPORTED_MODULE_24__["LisaIsikPopUpComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"], _search_search_component__WEBPACK_IMPORTED_MODULE_10__["SearchComponent"], _isikud_isikud_component__WEBPACK_IMPORTED_MODULE_11__["IsikudComponent"], _dokumendid_dokumendid_component__WEBPACK_IMPORTED_MODULE_12__["DokumendidComponent"], _toimikud_toimikud_component__WEBPACK_IMPORTED_MODULE_13__["ToimikudComponent"], _ajaarvestus_ajaarvestus_component__WEBPACK_IMPORTED_MODULE_14__["AjaarvestusComponent"], _kalender_pop_up_kalender_pop_up_component__WEBPACK_IMPORTED_MODULE_15__["KalenderPopUpComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"], _isiku_pop_up_isiku_pop_up_component__WEBPACK_IMPORTED_MODULE_23__["IsikuPopUpComponent"], _lisa_isik_pop_up_lisa_isik_pop_up_component__WEBPACK_IMPORTED_MODULE_24__["LisaIsikPopUpComponent"], _timer_timer_component__WEBPACK_IMPORTED_MODULE_26__["TimerComponent"]],
       entryComponents: [_kalender_pop_up_kalender_pop_up_component__WEBPACK_IMPORTED_MODULE_15__["KalenderPopUpComponent"], _isiku_pop_up_isiku_pop_up_component__WEBPACK_IMPORTED_MODULE_23__["IsikuPopUpComponent"], _lisa_isik_pop_up_lisa_isik_pop_up_component__WEBPACK_IMPORTED_MODULE_24__["LisaIsikPopUpComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatAutocompleteModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatRadioModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSliderModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSlideToggleModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatPaginatorModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSortModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_16__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatNativeDateModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_20__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_20__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_22__["NgbModule"]],
       providers: [{
@@ -2070,7 +2133,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "@font-face {\n  font-family: \"Saira\";\n  src: url(\"/assets/font/Saira-Regular.ttf\");\n}\n* {\n  font-family: \"Saira\";\n  font-style: normal;\n  font-weight: normal;\n}\nmat-icon {\n  font-family: \"Material Icons\" !important;\n}\n.dashboard {\n  display: inline-block;\n  height: 600px;\n  background-color: var(--background-secondary);\n  border-radius: 5px;\n  border-right: 1px solid var(--grid-primary);\n  margin: 30px;\n}\ntable {\n  width: 100%;\n  height: 100%;\n  border-collapse: collapse;\n  display: inline-block;\n  border-left: 1px solid var(--grid-primary);\n  border-top: 1px solid var(--grid-primary);\n  border-bottom: 1px solid var(--grid-primary);\n}\ntable thead {\n  text-align: center;\n  display: inline-table;\n  color: var(--text-primary);\n  width: 100%;\n  border-bottom: 1px solid var(--grid-primary);\n  height: 45px;\n}\ntable tr {\n  border-collapse: collapse;\n  border-bottom-width: 0;\n  color: var(--text-primary);\n}\ntable tr td {\n  padding-left: 15px;\n}\n.kalender {\n  display: unset;\n}\nmat-icon {\n  margin: 0;\n  padding: 0;\n  font-size: 30px;\n}\n::ng-deep .mat-checkbox .mat-checkbox-frame {\n  border-color: var(--text-grey);\n}\nmat-checkbox ::ng-deep .mat-checkbox-inner-container {\n  width: 20px;\n  height: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL0M6XFxQcm9ncmFtbWluZ1xcTMO1cHV0w7bDtlxcRnJvbnRfZW5kXFxsb3B1dG9vL3NyY1xcc3R5bGVzXFxiYXNlXFxfdHlwb2dyYXBoeS5zY3NzIiwic3JjL2FwcC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9kYXNoYm9hcmQvQzpcXFByb2dyYW1taW5nXFxMw7VwdXTDtsO2XFxGcm9udF9lbmRcXGxvcHV0b28vc3JjXFxhcHBcXGRhc2hib2FyZFxcZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVVBO0VBQ0ksb0JBQUE7RUFDQSwwQ0FBQTtBQ1RKO0FEWUE7RUFDSSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7QUNWSjtBRGNHO0VBQ0Msd0NBQUE7QUNYSjtBQ1ZBO0VBRUUscUJBQUE7RUFDQSxhQUFBO0VBQ0EsNkNBQUE7RUFFQSxrQkFBQTtFQUNBLDJDQUFBO0VBQ0EsWUFBQTtBRFdGO0FDUkE7RUFDRSxXQUFBO0VBRUEsWUFBQTtFQUNBLHlCQUFBO0VBQ0EscUJBQUE7RUFDQSwwQ0FBQTtFQUNBLHlDQUFBO0VBQ0EsNENBQUE7QURVRjtBQ05FO0VBQ0Usa0JBQUE7RUFDQSxxQkFBQTtFQUNBLDBCQUFBO0VBQ0EsV0FBQTtFQUNBLDRDQUFBO0VBQ0EsWUFBQTtBRFFKO0FDTkU7RUFDRSx5QkFBQTtFQUNBLHNCQUFBO0VBQ0EsMEJBQUE7QURRSjtBQ1BJO0VBQ0Usa0JBQUE7QURTTjtBQ0pBO0VBQ0UsY0FBQTtBRE9GO0FDTEE7RUFDRSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGVBQUE7QURRRjtBQ05BO0VBQ0UsOEJBQUE7QURTRjtBQ1BBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7QURVRiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIkcHJpbWFyeS1ibHVlOiAjMTg1M0FCOyAvL21haW4gdGV4dCBhbmQgaWNvbiBjb2xvclxyXG4kc2Vjb25kYXJ5LWJsdWU6ICMwMDM4RkY7XHJcblxyXG4kcHJpbWFyeS1ncmV5OiAjNzY3Njc2O1xyXG4kc2Vjb25kYXJ5LWdyZXk6ICNCNEI2QkIgOyAvL2xpbmVzLCBncmlkcyBhbmQgc3VjaFxyXG5cclxuJHByaW1hcnktYmc6ICNGRUZFRkU7IC8vYmFja2dyb3VuZCwgYW5kIHRleHRzIGluIGRhcmsgYmdcclxuXHJcblxyXG5cclxuQGZvbnQtZmFjZSB7XHJcbiAgICBmb250LWZhbWlseTogJ1NhaXJhJztcclxuICAgIHNyYzogdXJsKCcvYXNzZXRzL2ZvbnQvU2FpcmEtUmVndWxhci50dGYnKTtcclxuICB9XHJcblxyXG4qIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnU2FpcmEnO1xyXG4gICAgZm9udC1zdHlsZTogbm9ybWFsO1xyXG4gICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICAgIC8vZm9udC1zaXplOiAxNnB4O1xyXG4gICAgLy9saW5lLWhlaWdodDogMjBweDtcclxuICAgfVxyXG4gICBtYXQtaWNvbntcclxuICAgIGZvbnQtZmFtaWx5OiAnTWF0ZXJpYWwgSWNvbnMnICFpbXBvcnRhbnQ7IC8vaW1wb3J0YW50IGZvciBpY29ucyB0byB3b3JrXHJcbn1cclxuIiwiQGZvbnQtZmFjZSB7XG4gIGZvbnQtZmFtaWx5OiBcIlNhaXJhXCI7XG4gIHNyYzogdXJsKFwiL2Fzc2V0cy9mb250L1NhaXJhLVJlZ3VsYXIudHRmXCIpO1xufVxuKiB7XG4gIGZvbnQtZmFtaWx5OiBcIlNhaXJhXCI7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbn1cblxubWF0LWljb24ge1xuICBmb250LWZhbWlseTogXCJNYXRlcmlhbCBJY29uc1wiICFpbXBvcnRhbnQ7XG59XG5cbi5kYXNoYm9hcmQge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGhlaWdodDogNjAwcHg7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJhY2tncm91bmQtc2Vjb25kYXJ5KTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCB2YXIoLS1ncmlkLXByaW1hcnkpO1xuICBtYXJnaW46IDMwcHg7XG59XG5cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkIHZhcigtLWdyaWQtcHJpbWFyeSk7XG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCB2YXIoLS1ncmlkLXByaW1hcnkpO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcbn1cbnRhYmxlIHRoZWFkIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBkaXNwbGF5OiBpbmxpbmUtdGFibGU7XG4gIGNvbG9yOiB2YXIoLS10ZXh0LXByaW1hcnkpO1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHZhcigtLWdyaWQtcHJpbWFyeSk7XG4gIGhlaWdodDogNDVweDtcbn1cbnRhYmxlIHRyIHtcbiAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcbiAgYm9yZGVyLWJvdHRvbS13aWR0aDogMDtcbiAgY29sb3I6IHZhcigtLXRleHQtcHJpbWFyeSk7XG59XG50YWJsZSB0ciB0ZCB7XG4gIHBhZGRpbmctbGVmdDogMTVweDtcbn1cblxuLmthbGVuZGVyIHtcbiAgZGlzcGxheTogdW5zZXQ7XG59XG5cbm1hdC1pY29uIHtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xuICBmb250LXNpemU6IDMwcHg7XG59XG5cbjo6bmctZGVlcCAubWF0LWNoZWNrYm94IC5tYXQtY2hlY2tib3gtZnJhbWUge1xuICBib3JkZXItY29sb3I6IHZhcigtLXRleHQtZ3JleSk7XG59XG5cbm1hdC1jaGVja2JveCA6Om5nLWRlZXAgLm1hdC1jaGVja2JveC1pbm5lci1jb250YWluZXIge1xuICB3aWR0aDogMjBweDtcbiAgaGVpZ2h0OiAyMHB4O1xufSIsIkBpbXBvcnQgXCJiYXNlL3R5cG9ncmFwaHlcIjtcclxuXHJcbi5kYXNoYm9hcmQge1xyXG4gIC8vd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGhlaWdodDogNjAwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmFja2dyb3VuZC1zZWNvbmRhcnkpO1xyXG4gIC8vYm9yZGVyOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBtYXJnaW46IDMwcHg7XHJcbn1cclxuXHJcbnRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxuICAvL2Rpc3BsYXk6IGZsZXg7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBib3JkZXItdG9wOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuXHJcbiAgLy9iYWNrZ3JvdW5kLWNvbG9yOiBSRUQ7XHJcblxyXG4gIHRoZWFkIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGlubGluZS10YWJsZTtcclxuICAgIGNvbG9yOiB2YXIoLS10ZXh0LXByaW1hcnkpO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICAgIGhlaWdodDogNDVweDtcclxuICB9XHJcbiAgdHIge1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxuICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDA7XHJcbiAgICBjb2xvcjogdmFyKC0tdGV4dC1wcmltYXJ5KTtcclxuICAgIHRkIHtcclxuICAgICAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuLmthbGVuZGVyIHtcclxuICBkaXNwbGF5OiB1bnNldDtcclxufVxyXG5tYXQtaWNvbiB7XHJcbiAgbWFyZ2luOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZm9udC1zaXplOiAzMHB4O1xyXG59XHJcbjo6bmctZGVlcCAubWF0LWNoZWNrYm94IC5tYXQtY2hlY2tib3gtZnJhbWUge1xyXG4gIGJvcmRlci1jb2xvcjogdmFyKC0tdGV4dC1ncmV5KTtcclxufVxyXG5tYXQtY2hlY2tib3ggOjpuZy1kZWVwIC5tYXQtY2hlY2tib3gtaW5uZXItY29udGFpbmVyIHtcclxuICB3aWR0aDogMjBweDtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbiJdfQ== */";
+    __webpack_exports__["default"] = "@font-face {\n  font-family: \"Saira\";\n  src: url(\"/assets/font/Saira-Regular.ttf\");\n}\n* {\n  font-family: \"Saira\";\n  font-style: normal;\n  font-weight: normal;\n}\nmat-icon {\n  font-family: \"Material Icons\" !important;\n}\n.dashboard {\n  display: inline-block;\n  height: 600px;\n  background-color: var(--background-secondary);\n  border-radius: 5px;\n  border-right: 1px solid var(--grid-primary);\n  margin: 30px;\n}\ntable {\n  width: 100%;\n  height: 100%;\n  border-collapse: collapse;\n  display: inline-block;\n  border-left: 1px solid var(--grid-primary);\n  border-top: 1px solid var(--grid-primary);\n  border-bottom: 1px solid var(--grid-primary);\n}\ntable thead {\n  text-align: center;\n  display: inline-table;\n  color: var(--text-primary);\n  width: 100%;\n  border-bottom: 1px solid var(--grid-primary);\n  height: 45px;\n}\ntable tr {\n  border-collapse: collapse;\n  border-bottom-width: 0;\n  color: var(--text-primary);\n}\ntable tr td {\n  padding-left: 15px;\n}\n.icon {\n  cursor: pointer;\n}\n.kalender {\n  display: unset;\n}\nmat-icon {\n  margin: 0;\n  padding: 0;\n  font-size: 30px;\n}\n::ng-deep .mat-checkbox .mat-checkbox-frame {\n  border-color: var(--text-grey);\n}\nmat-checkbox ::ng-deep .mat-checkbox-inner-container {\n  width: 20px;\n  height: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL0M6XFxQcm9ncmFtbWluZ1xcTMO1cHV0w7bDtlxcRnJvbnRfZW5kXFxsb3B1dG9vL3NyY1xcc3R5bGVzXFxiYXNlXFxfdHlwb2dyYXBoeS5zY3NzIiwic3JjL2FwcC9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9kYXNoYm9hcmQvQzpcXFByb2dyYW1taW5nXFxMw7VwdXTDtsO2XFxGcm9udF9lbmRcXGxvcHV0b28vc3JjXFxhcHBcXGRhc2hib2FyZFxcZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVVBO0VBQ0ksb0JBQUE7RUFDQSwwQ0FBQTtBQ1RKO0FEWUE7RUFDSSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7QUNWSjtBRGNHO0VBQ0Msd0NBQUE7QUNYSjtBQ1ZBO0VBRUUscUJBQUE7RUFDQSxhQUFBO0VBQ0EsNkNBQUE7RUFFQSxrQkFBQTtFQUNBLDJDQUFBO0VBQ0EsWUFBQTtBRFdGO0FDUkE7RUFDRSxXQUFBO0VBRUEsWUFBQTtFQUNBLHlCQUFBO0VBQ0EscUJBQUE7RUFDQSwwQ0FBQTtFQUNBLHlDQUFBO0VBQ0EsNENBQUE7QURVRjtBQ05FO0VBQ0Usa0JBQUE7RUFDQSxxQkFBQTtFQUNBLDBCQUFBO0VBQ0EsV0FBQTtFQUNBLDRDQUFBO0VBQ0EsWUFBQTtBRFFKO0FDTkU7RUFDRSx5QkFBQTtFQUNBLHNCQUFBO0VBQ0EsMEJBQUE7QURRSjtBQ1BJO0VBQ0Usa0JBQUE7QURTTjtBQ0xBO0VBQ0UsZUFBQTtBRFFGO0FDTEE7RUFDRSxjQUFBO0FEUUY7QUNOQTtFQUNFLFNBQUE7RUFDQSxVQUFBO0VBQ0EsZUFBQTtBRFNGO0FDUEE7RUFDRSw4QkFBQTtBRFVGO0FDUkE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBRFdGIiwiZmlsZSI6InNyYy9hcHAvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiRwcmltYXJ5LWJsdWU6ICMxODUzQUI7IC8vbWFpbiB0ZXh0IGFuZCBpY29uIGNvbG9yXHJcbiRzZWNvbmRhcnktYmx1ZTogIzAwMzhGRjtcclxuXHJcbiRwcmltYXJ5LWdyZXk6ICM3Njc2NzY7XHJcbiRzZWNvbmRhcnktZ3JleTogI0I0QjZCQiA7IC8vbGluZXMsIGdyaWRzIGFuZCBzdWNoXHJcblxyXG4kcHJpbWFyeS1iZzogI0ZFRkVGRTsgLy9iYWNrZ3JvdW5kLCBhbmQgdGV4dHMgaW4gZGFyayBiZ1xyXG5cclxuXHJcblxyXG5AZm9udC1mYWNlIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnU2FpcmEnO1xyXG4gICAgc3JjOiB1cmwoJy9hc3NldHMvZm9udC9TYWlyYS1SZWd1bGFyLnR0ZicpO1xyXG4gIH1cclxuXHJcbioge1xyXG4gICAgZm9udC1mYW1pbHk6ICdTYWlyYSc7XHJcbiAgICBmb250LXN0eWxlOiBub3JtYWw7XHJcbiAgICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gICAgLy9mb250LXNpemU6IDE2cHg7XHJcbiAgICAvL2xpbmUtaGVpZ2h0OiAyMHB4O1xyXG4gICB9XHJcbiAgIG1hdC1pY29ue1xyXG4gICAgZm9udC1mYW1pbHk6ICdNYXRlcmlhbCBJY29ucycgIWltcG9ydGFudDsgLy9pbXBvcnRhbnQgZm9yIGljb25zIHRvIHdvcmtcclxufVxyXG4iLCJAZm9udC1mYWNlIHtcbiAgZm9udC1mYW1pbHk6IFwiU2FpcmFcIjtcbiAgc3JjOiB1cmwoXCIvYXNzZXRzL2ZvbnQvU2FpcmEtUmVndWxhci50dGZcIik7XG59XG4qIHtcbiAgZm9udC1mYW1pbHk6IFwiU2FpcmFcIjtcbiAgZm9udC1zdHlsZTogbm9ybWFsO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xufVxuXG5tYXQtaWNvbiB7XG4gIGZvbnQtZmFtaWx5OiBcIk1hdGVyaWFsIEljb25zXCIgIWltcG9ydGFudDtcbn1cblxuLmRhc2hib2FyZCB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgaGVpZ2h0OiA2MDBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmFja2dyb3VuZC1zZWNvbmRhcnkpO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkIHZhcigtLWdyaWQtcHJpbWFyeSk7XG4gIG1hcmdpbjogMzBweDtcbn1cblxudGFibGUge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIHZhcigtLWdyaWQtcHJpbWFyeSk7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1ncmlkLXByaW1hcnkpO1xufVxudGFibGUgdGhlYWQge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGlubGluZS10YWJsZTtcbiAgY29sb3I6IHZhcigtLXRleHQtcHJpbWFyeSk7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcbiAgaGVpZ2h0OiA0NXB4O1xufVxudGFibGUgdHIge1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xuICBib3JkZXItYm90dG9tLXdpZHRoOiAwO1xuICBjb2xvcjogdmFyKC0tdGV4dC1wcmltYXJ5KTtcbn1cbnRhYmxlIHRyIHRkIHtcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xufVxuXG4uaWNvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmthbGVuZGVyIHtcbiAgZGlzcGxheTogdW5zZXQ7XG59XG5cbm1hdC1pY29uIHtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xuICBmb250LXNpemU6IDMwcHg7XG59XG5cbjo6bmctZGVlcCAubWF0LWNoZWNrYm94IC5tYXQtY2hlY2tib3gtZnJhbWUge1xuICBib3JkZXItY29sb3I6IHZhcigtLXRleHQtZ3JleSk7XG59XG5cbm1hdC1jaGVja2JveCA6Om5nLWRlZXAgLm1hdC1jaGVja2JveC1pbm5lci1jb250YWluZXIge1xuICB3aWR0aDogMjBweDtcbiAgaGVpZ2h0OiAyMHB4O1xufSIsIkBpbXBvcnQgXCJiYXNlL3R5cG9ncmFwaHlcIjtcclxuXHJcbi5kYXNoYm9hcmQge1xyXG4gIC8vd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGhlaWdodDogNjAwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmFja2dyb3VuZC1zZWNvbmRhcnkpO1xyXG4gIC8vYm9yZGVyOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBtYXJnaW46IDMwcHg7XHJcbn1cclxuXHJcbnRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxuICAvL2Rpc3BsYXk6IGZsZXg7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBib3JkZXItdG9wOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuXHJcbiAgLy9iYWNrZ3JvdW5kLWNvbG9yOiBSRUQ7XHJcblxyXG4gIHRoZWFkIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGlubGluZS10YWJsZTtcclxuICAgIGNvbG9yOiB2YXIoLS10ZXh0LXByaW1hcnkpO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tZ3JpZC1wcmltYXJ5KTtcclxuICAgIGhlaWdodDogNDVweDtcclxuICB9XHJcbiAgdHIge1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxuICAgIGJvcmRlci1ib3R0b20td2lkdGg6IDA7XHJcbiAgICBjb2xvcjogdmFyKC0tdGV4dC1wcmltYXJ5KTtcclxuICAgIHRkIHtcclxuICAgICAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG4uaWNvbiB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4ua2FsZW5kZXIge1xyXG4gIGRpc3BsYXk6IHVuc2V0O1xyXG59XHJcbm1hdC1pY29uIHtcclxuICBtYXJnaW46IDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBmb250LXNpemU6IDMwcHg7XHJcbn1cclxuOjpuZy1kZWVwIC5tYXQtY2hlY2tib3ggLm1hdC1jaGVja2JveC1mcmFtZSB7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS10ZXh0LWdyZXkpO1xyXG59XHJcbm1hdC1jaGVja2JveCA6Om5nLWRlZXAgLm1hdC1jaGVja2JveC1pbm5lci1jb250YWluZXIge1xyXG4gIHdpZHRoOiAyMHB4O1xyXG4gIGhlaWdodDogMjBweDtcclxufVxyXG5cclxuIl19 */";
     /***/
   },
 
@@ -2080,7 +2143,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     !*** ./src/app/dashboard/dashboard.component.ts ***!
     \**************************************************/
 
-  /*! exports provided: DashboardComponent */
+  /*! exports provided: DashboardComponent, newCalDate */
 
   /***/
   function srcAppDashboardDashboardComponentTs(module, __webpack_exports__, __webpack_require__) {
@@ -2092,6 +2155,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     __webpack_require__.d(__webpack_exports__, "DashboardComponent", function () {
       return DashboardComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "newCalDate", function () {
+      return newCalDate;
     });
     /* harmony import */
 
@@ -2117,14 +2186,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _kalender_pop_up_kalender_pop_up_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../kalender-pop-up/kalender-pop-up.component */
     "./src/app/kalender-pop-up/kalender-pop-up.component.ts");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
 
     var DashboardComponent =
     /*#__PURE__*/
     function () {
-      function DashboardComponent(dialog) {
+      function DashboardComponent(dialog, fb) {
         _classCallCheck(this, DashboardComponent);
 
         this.dialog = dialog;
+        this.fb = fb;
         this.dataSource1 = DASH_DATA1;
         this.columnsToDisplay = ['Task'];
       }
@@ -2132,45 +2208,73 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashboardComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.sortedArray();
+          //this.sortArray()
           console.log("The sorted dates are: ");
           this.calendarData = calenderDates;
-          this.sortObjects(this.calendarData);
-          console.log(calenderDates);
+          console.log(calenderDates); //this.sortObjects(this.calendarData);
+
+          this.isAddTask = false;
         }
       }, {
-        key: "sortedArray",
-        value: function sortedArray() {
-          // Sort the array by date acending (jan->dec)
-          console.log("Sorting array");
-          return calenderDates.sort(function (a, b) {
-            return new Date(a.eventDate) - new Date(b.eventDate);
+        key: "openAddTask",
+        value: function openAddTask() {
+          this.isAddTask = !this.isAddTask;
+          this.form = this.fb.group({
+            toDoTask: ""
           });
         }
       }, {
-        key: "sortObjects",
-        value: function sortObjects(array) {
-          var _this2 = this;
-
-          array.forEach(function (element, index) {
-            console.log(element.eventDate.getFullYear());
-            console.log(element.eventDate.getMonth());
-            console.log(element.eventDate.getDate());
-
-            if (array.findIndex(function (i) {
-              return i.eventDate.getFullYear() == element.eventDate.getFullYear();
-            }) === 0 && array.findIndex(function (i) {
-              return i.eventDate.getMonth() == element.eventDate.getMonth();
-            }) === 0 && array.findIndex(function (i) {
-              return i.eventDate.getDate() == element.eventDate.getDate();
-            }) === 0) {
-              console.log("Ther was a similar object" + element.eventDate);
-              _this2.newCalendarData;
-            } else {
-              console.log("no similar objects");
-            }
-          });
-        } // Open pop-up and configur it. Send data
+        key: "saveAddTask",
+        value: function saveAddTask() {
+          this.form; // send API CALL
+        }
+      }, {
+        key: "closeAddTask",
+        value: function closeAddTask() {
+          this.isAddTask = !this.isAddTask;
+        } // public sortArray(): CalendarDate[] {
+        //   // Sort the array by date acending (jan->dec)
+        //   console.log("Sorting array");
+        //   return calenderDates.sort((a, b) => {
+        //     return <any>new Date(a.calDate) - <any>new Date(b.calDate);
+        //   });
+        // }
+        // sortObjects(array) {
+        //   this.newCalendarDates = [];
+        //   console.log(this.newCalendarDates[0]);
+        //   array.forEach((element, i = 0) => {
+        //     // console.log(i);
+        //     // console.log(element.Task);
+        //     // if (this.newCalendarDates[0] == undefined) {
+        //     //   console.log("UNDEFINED");
+        //     //   const obj = new newCalDate(
+        //     //     element.calDate,
+        //     //     element.Task,
+        //     //     element.Time
+        //     //   );
+        //     //   console.log("OBJECT " + obj.eventDate);
+        //     //   console.log("OBJECT " + obj.desc[i].task);
+        //     //   this.newCalendarDates.push(obj);
+        //     // } else if (this.newCalendarDates.filter(o => o.eventDate === "element.calDate")) {
+        //     //   //console.log("NCD date: " + this.newCalendarDates[0].calDate);
+        //     //   console.log("Ther was a similar object" + element.calDate);
+        //     //   var show = this.newCalendarDates.filter(o => o.eventDate == element.calDate);
+        //     //   console.log("SHOW: " + show);
+        //     // } else {
+        //     //   // console.log("NCD date: " + this.newCalendarDates[i].eventDate);
+        //     //   const obj = new newCalDate(
+        //     //     element.calDate,
+        //     //     element.Task,
+        //     //     element.Time
+        //     //   );
+        //     //   console.log("OBJECT " + obj.desc[0].task);
+        //     //   this.newCalendarDates.push(obj);
+        //     // }
+        //     // i++;
+        //   });
+        //   console.log(this.newCalendarDates);
+        // }
+        // Open pop-up and configur it. Send data
 
       }, {
         key: "openDialog",
@@ -2197,6 +2301,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     DashboardComponent.ctorParameters = function () {
       return [{
         type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+      }, {
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]
       }];
     };
 
@@ -2209,18 +2315,53 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./dashboard.component.scss */
       "./src/app/dashboard/dashboard.component.scss")).default]
     })], DashboardComponent);
+
+    var newCalDate =
+    /*#__PURE__*/
+    function () {
+      function newCalDate() {
+        _classCallCheck(this, newCalDate);
+      }
+
+      _createClass(newCalDate, [{
+        key: "addDesc",
+        // constructor(
+        //   newDate: Date,
+        //   newTask: string,
+        //   newTime: string) {
+        //   this.eventDate = newDate;
+        //   this.desc = [
+        //     {
+        //       task: newTask,
+        //       time: newTime
+        //     }
+        //   ]
+        // }
+        value: function addDesc(desc) {
+          this.desc.push(desc);
+          console.log("ADDDESCK func: added a task");
+        }
+      }]);
+
+      return newCalDate;
+    }();
+
     var calenderDates = [{
-      eventDate: new Date(),
-      task: "Comand the Normandy"
+      calDate: new Date(),
+      Task: "Comand the Normandy",
+      Time: "08:00"
     }, {
-      eventDate: new Date(2020, 0, 13, 13, 0),
-      task: "Shoot disks with Vak"
+      calDate: new Date(2020, 0, 13),
+      Task: "Shoot disks with Vak",
+      Time: "11:50"
     }, {
-      eventDate: new Date(2020, 5, 10, 15, 0),
-      task: "Protheans art"
+      calDate: new Date(2020, 5, 10),
+      Task: "Protheans art",
+      Time: "15:15"
     }, {
-      eventDate: new Date(2020, 5, 10, 14, 21),
-      task: "Poems with Wrex"
+      calDate: new Date(2020, 5, 10),
+      Task: "Poems with Wrex",
+      Time: "8.30"
     }];
     var DASH_DATA1 = [{
       Task: "Esita dokument A",
@@ -2449,10 +2590,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getClient",
         value: function getClient(clientId) {
-          var _this3 = this;
+          var _this2 = this;
 
           this.clientService.getClient(clientId).subscribe(function (data) {
-            _this3.dataPerson = data;
+            _this2.dataPerson = data;
             console.log("Data updated!");
           }, function (err) {
             return console.log(err);
@@ -2472,7 +2613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "changeClient",
         value: function changeClient(clientId) {
-          var _this4 = this;
+          var _this3 = this;
 
           var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogConfig"]();
           dialogConfig.disableClose = false;
@@ -2484,7 +2625,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.dialog.open(_lisa_isik_pop_up_lisa_isik_pop_up_component__WEBPACK_IMPORTED_MODULE_4__["LisaIsikPopUpComponent"], dialogConfig).afterClosed().subscribe(function (result) {
             console.log("Dialog closed");
 
-            _this4.getClient(clientId);
+            _this3.getClient(clientId);
           });
         }
       }, {
@@ -2621,11 +2762,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getClients",
         value: function getClients() {
-          var _this5 = this;
+          var _this4 = this;
 
           console.log("Init for the clients");
           this.clientService.getAllClients().subscribe(function (data) {
-            _this5.clientsData = data;
+            _this4.clientsData = data;
           }, function (error) {
             console.log(error);
           });
@@ -2634,7 +2775,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openAddClient",
         value: function openAddClient() {
-          var _this6 = this;
+          var _this5 = this;
 
           var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogConfig"]();
           dialogConfig.disableClose = false;
@@ -2645,13 +2786,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.dialog.open(_lisa_isik_pop_up_lisa_isik_pop_up_component__WEBPACK_IMPORTED_MODULE_4__["LisaIsikPopUpComponent"], dialogConfig).afterClosed().subscribe(function (result) {
             console.log("Dialog closed");
 
-            _this6.getClients();
+            _this5.getClients();
           });
         }
       }, {
         key: "openClienView",
         value: function openClienView(clientId) {
-          var _this7 = this;
+          var _this6 = this;
 
           console.log("Message:" + clientId);
           var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogConfig"]();
@@ -2672,7 +2813,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.dialog.open(_isiku_pop_up_isiku_pop_up_component__WEBPACK_IMPORTED_MODULE_3__["IsikuPopUpComponent"], dialogConfig).afterClosed().subscribe(function (result) {
             console.log("Dialog closed");
 
-            _this7.getClients();
+            _this6.getClients();
           });
         }
       }]);
@@ -2826,10 +2967,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "dateClass",
         value: function dateClass() {
-          var _this8 = this;
+          var _this7 = this;
 
           return function (date) {
-            var highlightDate = _this8.datesToHighlight.map(function (strDate) {
+            var highlightDate = _this7.datesToHighlight.map(function (strDate) {
               return new Date(strDate);
             }).some(function (d) {
               return d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear();
@@ -3200,11 +3341,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(LoginComponent, [{
         key: "login",
         value: function login() {
-          var _this9 = this;
+          var _this8 = this;
 
           console.log("Login started....");
           this.auth.login(this.credentials).subscribe(function () {
-            _this9.router.navigateByUrl('/');
+            _this8.router.navigateByUrl('/');
           }, function (err) {
             console.error(err);
           });
@@ -3427,11 +3568,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(RegisterComponent, [{
         key: "register",
         value: function register() {
-          var _this10 = this;
+          var _this9 = this;
 
           console.log("Reged!");
           this.auth.register(this.credentials).subscribe(function () {
-            _this10.router.navigateByUrl('/');
+            _this9.router.navigateByUrl('/');
           }, function (err) {
             console.error(err);
           });
@@ -3612,11 +3753,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "setActiveTheme",
         value: function setActiveTheme(theme) {
-          var _this11 = this;
+          var _this10 = this;
 
           this.active = theme;
           Object.keys(this.active.properties).forEach(function (property) {
-            document.documentElement.style.setProperty(property, _this11.active.properties[property]);
+            document.documentElement.style.setProperty(property, _this10.active.properties[property]);
           });
         }
       }]);
@@ -3700,6 +3841,232 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         "--background-hover-shadow": "2px 4px 4px rgba(255, 255, 255, 0.40)"
       }
     };
+    /***/
+  },
+
+  /***/
+  "./src/app/timer/timer.component.scss":
+  /*!********************************************!*\
+    !*** ./src/app/timer/timer.component.scss ***!
+    \********************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTimerTimerComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".timerContainer {\n  position: absolute;\n  top: 450px;\n  right: 0;\n}\n\n.clockIcon {\n  width: 65px;\n  text-align: left;\n  display: block;\n  border-radius: 15px;\n  margin-right: -15px;\n  background-color: var(--calendar-bg);\n}\n\n.clockIcon mat-icon {\n  margin-top: 10px;\n  display: inline-block;\n  font-size: 50px;\n  color: var(--valid);\n}\n\n.extendedView {\n  width: 400px;\n  height: 180px;\n  padding: 15px;\n  background-color: var(--calendar-bg);\n}\n\n.extendedView button {\n  border: solid 1px var(--calendar-primary);\n  padding: 0 10px 0 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGltZXIvQzpcXFByb2dyYW1taW5nXFxMw7VwdXTDtsO2XFxGcm9udF9lbmRcXGxvcHV0b28vc3JjXFxhcHBcXHRpbWVyXFx0aW1lci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdGltZXIvdGltZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxRQUFBO0FDQ0o7O0FESUE7RUFDSSxXQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0VBQ0EsbUJBQUE7RUFDQSxtQkFBQTtFQUdBLG9DQUFBO0FDSEo7O0FESUk7RUFDSSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0FDRlI7O0FETUE7RUFDSSxZQUFBO0VBQ0EsYUFBQTtFQUNBLGFBQUE7RUFDQSxvQ0FBQTtBQ0hKOztBRElJO0VBQ0sseUNBQUE7RUFDQSxzQkFBQTtBQ0ZUIiwiZmlsZSI6InNyYy9hcHAvdGltZXIvdGltZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGltZXJDb250YWluZXJ7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDQ1MHB4O1xyXG4gICAgcmlnaHQ6IDA7XHJcbiAgICAvL2JvdHRvbTogNTBweDtcclxufVxyXG5cclxuXHJcbi5jbG9ja0ljb257XHJcbiAgICB3aWR0aDogNjVweDtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IC0xNXB4O1xyXG4gICAgXHJcblxyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY2FsZW5kYXItYmcpO1xyXG4gICAgbWF0LWljb257XHJcbiAgICAgICAgbWFyZ2luLXRvcDogMTBweDtcclxuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7ICAgICAgXHJcbiAgICAgICAgZm9udC1zaXplOiA1MHB4O1xyXG4gICAgICAgIGNvbG9yOiB2YXIoLS12YWxpZCk7XHJcbiAgICB9XHJcbiAgICBcclxufVxyXG4uZXh0ZW5kZWRWaWV3e1xyXG4gICAgd2lkdGg6IDQwMHB4O1xyXG4gICAgaGVpZ2h0OiAxODBweDtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jYWxlbmRhci1iZyk7XHJcbiAgICBidXR0b257XHJcbiAgICAgICAgIGJvcmRlcjogc29saWQgMXB4IHZhcigtLWNhbGVuZGFyLXByaW1hcnkpO1xyXG4gICAgICAgICBwYWRkaW5nOiAwIDEwcHggMCAxMHB4O1xyXG4gICAgfVxyXG4gICAgICAgXHJcbiAgICBcclxuXHJcbn1cclxuIiwiLnRpbWVyQ29udGFpbmVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDQ1MHB4O1xuICByaWdodDogMDtcbn1cblxuLmNsb2NrSWNvbiB7XG4gIHdpZHRoOiA2NXB4O1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xuICBkaXNwbGF5OiBibG9jaztcbiAgYm9yZGVyLXJhZGl1czogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAtMTVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY2FsZW5kYXItYmcpO1xufVxuLmNsb2NrSWNvbiBtYXQtaWNvbiB7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgZm9udC1zaXplOiA1MHB4O1xuICBjb2xvcjogdmFyKC0tdmFsaWQpO1xufVxuXG4uZXh0ZW5kZWRWaWV3IHtcbiAgd2lkdGg6IDQwMHB4O1xuICBoZWlnaHQ6IDE4MHB4O1xuICBwYWRkaW5nOiAxNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jYWxlbmRhci1iZyk7XG59XG4uZXh0ZW5kZWRWaWV3IGJ1dHRvbiB7XG4gIGJvcmRlcjogc29saWQgMXB4IHZhcigtLWNhbGVuZGFyLXByaW1hcnkpO1xuICBwYWRkaW5nOiAwIDEwcHggMCAxMHB4O1xufSJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/timer/timer.component.ts":
+  /*!******************************************!*\
+    !*** ./src/app/timer/timer.component.ts ***!
+    \******************************************/
+
+  /*! exports provided: TimerComponent */
+
+  /***/
+  function srcAppTimerTimerComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TimerComponent", function () {
+      return TimerComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _services_clients_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../_services/clients.service */
+    "./src/app/_services/clients.service.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _models_timerTask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../_models/timerTask */
+    "./src/app/_models/timerTask.ts");
+
+    var TimerComponent =
+    /*#__PURE__*/
+    function () {
+      function TimerComponent(clientService, fb) {
+        _classCallCheck(this, TimerComponent);
+
+        this.clientService = clientService;
+        this.fb = fb;
+        this.ticking = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["timer"])(0, 1000);
+        this.clientName = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        this.timedTask = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+      }
+
+      _createClass(TimerComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this11 = this;
+
+          this.getClients();
+          this.timeRunning = false;
+          this.extendView = false;
+          this.time = 0;
+          this.filteredOptions = this.clientName.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (value) {
+            return typeof value === 'string' ? value : value.name;
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (name) {
+            return name ? _this11._filter(name) : _this11.clientsData.slice();
+          }));
+          this.form = this.fb.group({
+            timedTask: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            clientName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+          });
+        }
+      }, {
+        key: "getClients",
+        value: function getClients() {
+          var _this12 = this;
+
+          console.log("Init for the clients");
+          this.clientService.getAllClients().subscribe(function (data) {
+            _this12.clientsData = data;
+          }, function (error) {
+            console.log(error);
+          });
+          console.log(this.clientsData);
+        }
+      }, {
+        key: "toggleExtendedView",
+        value: function toggleExtendedView() {
+          this.extendView = !this.extendView;
+        }
+      }, {
+        key: "displayFn",
+        value: function displayFn(client) {
+          return client && client.name ? client.name : '';
+        }
+      }, {
+        key: "_filter",
+        value: function _filter(name) {
+          var filterValue = name.toLowerCase();
+          return this.clientsData.filter(function (item) {
+            return item.name.toLowerCase().includes(filterValue);
+          });
+        }
+      }, {
+        key: "startTimer",
+        value: function startTimer() {
+          var _this13 = this;
+
+          if (!this.timeRunning && this.time == 0) {
+            console.log("time Start");
+            this.subscription = this.ticking.subscribe(function (val) {
+              return _this13.time = val;
+            });
+            this.timeRunning = true;
+          } else if (!this.timeRunning && this.time > 0) {
+            console.log("time continue");
+            console.log(this.time);
+            this.pausedTime = this.time;
+            this.subscription = this.ticking.subscribe(function (val) {
+              return _this13.time = _this13.pausedTime + val;
+            });
+            this.timeRunning = true;
+          } else {
+            console.log("Somethin ELSE");
+          }
+        }
+      }, {
+        key: "pauseTimer",
+        value: function pauseTimer() {
+          this.subscription.unsubscribe();
+          this.timeRunning = false;
+          console.log(this.time);
+        }
+      }, {
+        key: "stopTimer",
+        value: function stopTimer() {
+          if (this.time > 0) {
+            this.subscription.unsubscribe(); // turn seconds into time string
+
+            var timeForDb = this.secondToTime(this.time); // save form to object
+
+            this.taskToSend = new _models_timerTask__WEBPACK_IMPORTED_MODULE_6__["TimerTask"](this.timedTask.value, this.clientName.value.name, timeForDb);
+            console.log(this.taskToSend); //reset the timer and form
+
+            this.timeRunning = false;
+            this.timedTask.setValue("");
+            this.clientName.setValue("");
+            this.time = 0;
+          }
+        }
+      }, {
+        key: "secondToTime",
+        value: function secondToTime(seconds) {
+          var date = new Date(0);
+          date.setSeconds(seconds); // specify value for SECONDS here
+
+          var timeString = date.toISOString().substr(11, 8);
+          return timeString;
+        }
+      }]);
+
+      return TimerComponent;
+    }();
+
+    TimerComponent.ctorParameters = function () {
+      return [{
+        type: _services_clients_service__WEBPACK_IMPORTED_MODULE_4__["ClientsService"]
+      }, {
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+      }];
+    };
+
+    TimerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-timer',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./timer.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/timer/timer.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./timer.component.scss */
+      "./src/app/timer/timer.component.scss")).default]
+    })], TimerComponent);
     /***/
   },
 
