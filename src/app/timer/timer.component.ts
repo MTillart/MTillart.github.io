@@ -91,6 +91,7 @@ export class TimerComponent implements OnInit {
   }
 
   startTimer() {
+    // check if time is runnung already
     if (!this.timeRunning && this.time == 0) {
       console.log("time Start");
 
@@ -106,17 +107,15 @@ export class TimerComponent implements OnInit {
       this.timeRunning = true;
 
     } else {
-      console.log("Somethin ELSE");
-
+      
     }
   }
 
   pauseTimer() {
     this.subscription.unsubscribe();
     this.timeRunning = false;
-    console.log(this.time);
-
   }
+
   stopTimer() {
     if (this.time > 0) {
       this.subscription.unsubscribe();
@@ -139,6 +138,7 @@ export class TimerComponent implements OnInit {
     }
 
   }
+  
   secondToTime(seconds: number) {
     var date = new Date(0);
     date.setSeconds(seconds); // specify value for SECONDS here

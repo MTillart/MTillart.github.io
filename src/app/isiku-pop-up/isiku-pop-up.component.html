@@ -15,7 +15,7 @@
 
     </div>
     <div class="main_panel" fxLayout="column">
-        <h5>Avatud toimikud<mat-icon color="accent">add_box</mat-icon>
+        <h5>Avatud toimikud<mat-icon (click)="close()" routerLink="/toimikud"  color="accent">add_box</mat-icon>
         </h5>
         <ul class="open_cases">
             <li>Toimik 1</li>

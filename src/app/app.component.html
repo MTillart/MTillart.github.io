@@ -3,7 +3,7 @@
 <app-navbar *ngIf="auth.isLoggedIn()"></app-navbar>
 
 <router-outlet>
-<app-timer></app-timer>
+<app-timer *ngIf="auth.isLoggedIn()"></app-timer>
   
     
 </router-outlet>

@@ -85,8 +85,9 @@ export class IsikuPopUpComponent implements OnInit {
         this.getClient(clientId);       
         
       });
-      
-
+  }
+  goToToimikud(){
+    
   }
 
   close() {

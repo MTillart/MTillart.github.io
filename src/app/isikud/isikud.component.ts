@@ -24,7 +24,7 @@ export class IsikudComponent implements OnInit {
 
   }
   getClients() {
-    console.log("Init for the clients");
+    //console.log("Init for the clients");
     this.clientService.getAllClients()
     .subscribe( data => {
       this.clientsData = data},
