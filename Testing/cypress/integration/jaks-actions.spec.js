@@ -3,40 +3,43 @@
 import * as dashPage from '../page-objects/dashboard-page';
 
 
-describe('Visaual validation', () => {
+describe('Add and delete client', () => {
     const email = 'test@klient.com'
-  const password = 'qwerty'
+    const password = 'qwerty'
+    const listCount = 0;
 
 
 
     before(() => dashPage.navigate())
 
-    // beforeEach(() => cy.eyesOpen({ 
-    //     appName: 'LoputooTest',
-    //     batchName: 'Esimene proov',
-    //     browser: [
-    //         {name: 'chrome', width: 1024, height: 768},
-    //         {name: 'chrome', width: 800, height: 600},
-    //         {name: 'firefox', width: 1024, height: 768}
-    //         //{deviceName: 'iPhone X'},
-    //     ]
-    
-    // }))
-
-    // afterEach(() => cy.eyesClose())
-
     it('login', () => {
 
-        //cy.eyesCheckWindow('check a box')
-
-        dashPage.insertEmail(email);
-
-        
+        dashPage.insertEmail(email);        
         dashPage.insertPassword(password);
         dashPage.clickLogin();
+
         dashPage.goToWebPage();
+
+        dashPage.goToPage("isikud");
 
 
     })
+    it("adds a person to database", () => {
+      dashPage.goToPage("isikud");
+      dashPage.openAddPerson();
+      dashPage.fillForm("name", "OÜ Tuulestviidud");
+      dashPage.fillForm("idCode", 85246555);
+      dashPage.fillForm("email", "viidud@tuul.com");
+      dashPage.fillForm("phone", 58455855);
+      dashPage.fillForm("company", "Scarlett O'Hara");
+      dashPage.fillForm("address", "Tara 65 Atlanta");
+      dashPage.confirm();
+  })
+  it("checks if person was added to list, open details and delete", () => {
+    dashPage.findFromList("OÜ Tuulestviidud");
+    dashPage.deleteClient();
+
+
+  })
 
 })

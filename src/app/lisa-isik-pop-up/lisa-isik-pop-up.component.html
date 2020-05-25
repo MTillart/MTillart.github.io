@@ -3,28 +3,8 @@
 <mat-dialog-content [formGroup]="form">
   <div class="container">
     <!-- <mat-checkbox (click)="addCompanyForm()" formControlName="isCompany">Ettevõte</mat-checkbox> -->
-    <div *ngIf="isCompany" class="company" formGroupName="companyData">
-      <h6>Ettevõte andmed</h6>
-      <mat-form-field>
-        <input matInput placeholder="Ettevõte nimi" formControlName="companyName" id="companyName" name="companyName" required>
-        <mat-error>Täida väli</mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <!-- <input matInput placeholder="Registrikood" formControlName="companyCode" id="companyCode" name="companyCode" required> -->
-        <mat-error *ngIf = "companyCode.hasError('required')">Täida väli</mat-error>
-        <mat-error *ngIf = "companyCode.hasError('pattern')">Ainult numbrid lubatud</mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput placeholder="Ettevõte email" formControlName="companyEmail" id="companyEmail" name="companyEmail">
-        <mat-error>Täida väli</mat-error>
-      </mat-form-field>
-
-    </div>
     
     <div>
-      <h6 *ngIf="isCompany">Ettevõte esindaja</h6>
       <mat-form-field>
         <input matInput placeholder="Nimi" formControlName="name" id="name" name="name" required>
         <mat-error>Täida väli</mat-error>
@@ -73,8 +53,8 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-stroked-button *ngIf="!editData" [disabled]="!form.valid" (click)="saveFormData()" color="accent">Kinnita</button>
-  <button mat-stroked-button *ngIf="editData"[disabled]="!form.valid" (click)="editFormData(editData._id)" color="accent">Kinnita muudatused</button>
+  <button id="submit" mat-stroked-button *ngIf="!editData" [disabled]="!form.valid" (click)="saveFormData()" color="accent">Kinnita</button>
+  <button mat-stroked-button *ngIf="editData" [disabled]="!form.valid" (click)="editFormData(editData._id)" color="accent">Kinnita muudatused</button>
 
   <button (click)="close()" mat-stroked-button color="accent">Katkesta</button>
 </mat-dialog-actions>

@@ -6,6 +6,7 @@ import { ClientsService } from '../_services/clients.service';
 import { Client } from '../_models/client';
 import { timer } from 'rxjs';
 import { TimerTask } from '../_models/timerTask';
+import { TimerService } from '../_services/timer.service';
 
 
 @Component({
@@ -37,7 +38,8 @@ export class TimerComponent implements OnInit {
 
   constructor(
     private clientService: ClientsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private timerService: TimerService
   ) { }
 
   ngOnInit() {
@@ -53,9 +55,12 @@ export class TimerComponent implements OnInit {
         map(name => name ? this._filter(name) : this.clientsData.slice())
       );
     this.form = this.fb.group({
-      timedTask: ['', Validators.required],
-      clientName: ['', Validators.required],
+
+      timedTask: new FormControl('', Validators.required),
+      clientName: new FormControl(''),
     })
+    console.log(this.clientsData);
+    
 
   }
 
@@ -63,20 +68,17 @@ export class TimerComponent implements OnInit {
     console.log("Init for the clients");
     this.clientService.getAllClients()
       .subscribe(data => {
-        this.clientsData = data
+        this.clientsData = data;       
       },
         error => {
           console.log(error);
-
         }
       );
-
-    console.log(this.clientsData);
+    return this.clientsData
 
   }
 
   toggleExtendedView() {
-
     this.extendView = !this.extendView;
   }
 
@@ -129,6 +131,19 @@ export class TimerComponent implements OnInit {
         this.clientName.value.name,
         timeForDb
       );
+      // Send POST api
+      this.timerService.addTimedTask(this.taskToSend)
+      .subscribe( data => {
+        this.clientsData = data},
+        error => {
+          console.log(error);
+          
+        }
+        );
+      
+
+
+
       console.log(this.taskToSend);
       //reset the timer and form
       this.timeRunning = false;
@@ -145,5 +160,6 @@ export class TimerComponent implements OnInit {
     var timeString = date.toISOString().substr(11, 8);
     return timeString;
   }
+  
 
 }

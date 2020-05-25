@@ -7,6 +7,8 @@ import { isNgTemplate, ThrowStmt } from '@angular/compiler';
 import { CalendarDate } from '../_models/calendarDate';
 import { element } from 'protractor';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { CalendarService } from '../_services/calendar.service';
+import { TodoService } from '../_services/todo.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,63 +18,119 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class DashboardComponent implements OnInit {
 
-  isAddTask: boolean;
+  isAddToDo: boolean;
+  isEditToDo: boolean;
   form: FormGroup;
-
   newTask: To_Do;
-
-
-
-  dataSource1 = DASH_DATA1;
-  calendarData: CalendarDate[];
-
-  newCalendarDates;
+  toDoData: To_Do[];
+  calendarData: CalendarDate[] = [];
+  editData: boolean;
+ 
+  newCalendarDates: [] = [];
 
   columnsToDisplay = ['Task'];
 
   constructor(
     public dialog: MatDialog,
     private fb: FormBuilder,
+    private calendarService: CalendarService,
+    private toDoService: TodoService
   ) {
   }
 
   ngOnInit() {
+    this.getToDos();
 
-
-    //this.sortArray()
-    console.log("The sorted dates are: ");
-    //this.sortObjects(this.calendarData);
-
-    this.isAddTask = false;
-
+    this.getCalendarDates();
+    console.log(this.calendarData);
+    this.isAddToDo = false;
     this.form = this.fb.group({
       toDoTask: ['', Validators.required],
-
+      isDone: ['']
     });
+
+
   }
   get toDoTask() { return this.form.get('toDoTask'); }
 
-  openAddTask() {
-    this.isAddTask = !this.isAddTask;
-
-
+  openAddToDo() {
+    this.isAddToDo = !this.isAddToDo;
   }
-  saveAddTask() {
-    this.form.get("toDoTask").value;
+
+  checkedBox(task: string, isDone: boolean, taskId: string) {
+    console.log("checkedbox: " + isDone);
+    isDone = !isDone
+    const toDo = new To_Do(
+      task,
+      isDone,
+    );
+
+    this.toDoService.changeToDo( taskId, toDo)
+    .subscribe(
+      date => console.log(date),
+      (err) => console.log(err),
+      () => this.getToDos()
+
+    );
+  }
+
+  saveAddToDo() {
+    console.log(this.form.get("toDoTask").value);
     this.newTask = {
-      Task: this.form.get("toDoTask").value,
+      task: this.form.get("toDoTask").value,
       isDone: false
     }
-    this.isAddTask = !this.isAddTask;
+    this.isAddToDo = !this.isAddToDo;
     console.log(this.newTask);
 
-    // send API CALL
+    this.toDoService.addToDo(this.newTask)
+    .subscribe(
+      date => console.log(date),
+      (err) => console.log(err),
+      () => this.getToDos()
 
-  }
-  closeAddTask() {
-    this.isAddTask = !this.isAddTask;
+    );
     this.form.reset();
   }
+  closeAddToDo() {
+    this.isAddToDo = !this.isAddToDo;
+    this.form.reset();
+  }
+  getCalendarDates() {
+    console.log("Init for the DATES");
+    this.calendarService.getAllCalendarDates()
+      .subscribe(data => {
+        this.calendarData = data
+      },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  public get sortedArray(): CalendarDate[] {
+    return this.calendarData.sort((a, b) => {
+      return a.eventDate > b.eventDate ? 1 : -1;
+    });
+  }
+  deleteEvent(calenderId) {
+    if (confirm("Kas soovid kalendri sündmuse kustutada?")) {
+      console.log("kustutan kuupäeva");
+      this.calendarService.deleteCalendarDate(calenderId)
+        .subscribe(
+          date => console.log(date),
+          (err) => console.log(err),
+          () => this.getCalendarDates()
+
+        );
+
+
+    } else {
+      console.log("sündmust ei kustutud");
+    }
+
+  }
+
 
   // Open pop-up and configur it. Send data
   openDialog() {
@@ -90,92 +148,73 @@ export class DashboardComponent implements OnInit {
     //     id: 1,
     //     title: 'Kalender'
     // };
-    //dialogConfig.data = DASH_DATA;
+    dialogConfig.data = this.calendarData;
 
-    this.dialog.open(KalenderPopUpComponent, dialogConfig);
+    //this.dialog.open(KalenderPopUpComponent, dialogConfig);
+    this.dialog.open(KalenderPopUpComponent, dialogConfig).afterClosed().subscribe(result => {
+      console.log("Dialog closed");
+
+      this.getCalendarDates();
+    });
+  }
+  changeCalenderEventDialog(calenderId) {
+    this.editData = true
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.height = "600px";
+    dialogConfig.width = "600px";
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.panelClass = 'calendarBox';
+    //dialogConfig.autoFocus = true;
+
+    //   dialogConfig.data = {
+    //     id: 1,
+    //     title: 'Kalender'
+    // };
+    let obj = this.calendarData.find(obj => obj._id == calenderId);
+    dialogConfig.data = {
+      obj,
+      editing: this.editData
+    }
+
+    //this.dialog.open(KalenderPopUpComponent, dialogConfig);
+    this.dialog.open(KalenderPopUpComponent, dialogConfig).afterClosed().subscribe(result => {
+      console.log("Dialog closed");
+      this.getCalendarDates();
+    });
+  }
+  getToDos() {
+    console.log("GETTING DO TOS");
+    
+    this.toDoService.getAllToDos()
+      .subscribe(data => {
+        this.toDoData = data
+      },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  
+  deleteToDo(toDoId) {
+    if (confirm("Kas soovid tegevuse kustutada?")) {
+      console.log("kustutan tegevuse");
+      this.toDoService.deleteTo_Do(toDoId)
+        .subscribe(
+          date => console.log(date),
+          (err) => console.log(err),
+          () => this.getToDos()
+
+        );
+
+
+    } else {
+      console.log("sündmust ei kustutud");
+    }
+
   }
 
-
-
-  // constructor(
-  //   newDate: Date,
-  //   newTask: string,
-  //   newTime: string) {
-  //   this.eventDate = newDate;
-  //   this.desc = [
-  //     {
-  //       task: newTask,
-  //       time: newTime
-  //     }
-  //   ]
-
-  // }
-
-}
-// const calenderDates: CalendarDate[] = [
-//   {
-//     calDate: new Date,
-//     Task: "Comand the Normandy",
-//     Time: "08:00"
-//   },
-//   {
-//     calDate: new Date(2020, 0o0, 13),
-//     Task: "Shoot disks with Vak",
-//     Time: "11:50"
-//   },
-//   {
-//     calDate: new Date(2020, 0o5, 10),
-//     Task: "Protheans art",
-//     Time: "15:15"
-//   },
-//   {
-//     calDate: new Date(2020, 0o5, 10),
-//     Task: "Poems with Wrex",
-//     Time: "8.30"
-//   },
-// ]
-
-
-export interface To_Do1 {
-  Task: string;
-  isDone: boolean;
 }
 
-const DASH_DATA1: To_Do1[] = [
-  {
-    Task: "Esita dokument A",
-    isDone: false
-  }, {
-    Task: "Esita dokument B",
-    isDone: false
-  },
-  {
-    Task: "Saada email",
-    isDone: true
-  },
-  {
-    Task: "Korrasta sahtleid",
-    isDone: false
-  },
-  {
-    Task: "Toimik 59 ülevaadata",
-    isDone: true
-  },
-  {
-    Task: "Tõnu Tõru?",
-    isDone: false
-  },
-  {
-    Task: "Tõnu Tõru?",
-    isDone: false
-  },
-  {
-    Task: "Tõnu Tõru?",
-    isDone: false
-  },
-  {
-    Task: "Tõnu Tõru?",
-    isDone: false
-  },
-
-];

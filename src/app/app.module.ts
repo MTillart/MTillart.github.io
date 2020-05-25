@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -30,7 +30,12 @@ import { IsikuPopUpComponent } from './isiku-pop-up/isiku-pop-up.component';
 import { LisaIsikPopUpComponent } from './lisa-isik-pop-up/lisa-isik-pop-up.component';
 import { TokenInterceptor } from './_services/interceptor.service';
 import { TimerComponent } from './timer/timer.component';
-import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.module'
+import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.module';
+import { registerLocaleData, NgLocalization, NgLocaleLocalization } from '@angular/common';
+import localeEe from '@angular/common/locales/et';
+import localeEeExtra from '@angular/common/locales/extra/et';
+
+registerLocaleData(localeEe, localeEeExtra);
 
 
 
@@ -50,7 +55,8 @@ import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.mo
     RegisterComponent,
     IsikuPopUpComponent,
     LisaIsikPopUpComponent,
-    TimerComponent,
+    TimerComponent
+
   ],
   entryComponents: [
     //KalenderPopUpComponent,
@@ -100,6 +106,8 @@ import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.mo
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
         {provide: MAT_DATE_LOCALE, useValue: 'est'},
         {provide: DateAdapter, useClass: CustomDateAdapter },
+        { provide: NgLocalization, useClass: NgLocaleLocalization },
+        { provide: LOCALE_ID, useValue: 'et' }
 
   ],
   bootstrap: [AppComponent]

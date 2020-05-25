@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef, MatCalendarCellCssClasses} from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef, MatCalendarCellCssClasses } from "@angular/material";
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { To_Do } from '../_models/to_do';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Time } from '../_models/time';
 import { group } from 'console';
 import { CalendarDate } from '../_models/calendarDate';
+import { CalendarService } from '../_services/calendar.service';
 
 @Component({
   selector: 'app-kalender-pop-up',
@@ -16,8 +16,8 @@ export class KalenderPopUpComponent implements OnInit {
 
   form: FormGroup;
   task: string;
-  dataArray: Array<To_Do>;
-  time = {hour: 13, minute: 30};
+  dataArray: Array<CalendarDate>;
+  time = { hour: 13, minute: 30 };
 
   theDate: Date = new Date();
   theHour: number = 13;
@@ -28,58 +28,110 @@ export class KalenderPopUpComponent implements OnInit {
   testDate: any;
   selectedDate: Date;
   dateToSend: CalendarDate;
+  editCalendar: boolean;
+  calendarEditData: CalendarDate;
 
-  datesToHighlight = ["2020-03-22T18:30:00.000Z", "2020-03-10T18:30:00.000Z", "2020-03-05T18:30:00.000Z", "2020-03-28T18:30:00.000Z", "2020-03-14T18:30:00.000Z", "2020-03-31T18:30:00.000Z", "2020-03-08T18:30:00.000Z", "2020-03-15T18:30:00.000Z"];
+  datesToHighlight: Date[] = [];
+
 
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<KalenderPopUpComponent>,
+    private calendarService: CalendarService,
     @Inject(MAT_DIALOG_DATA) data) {
 
+
+
+    if (data.editing == true) {
+      console.log("EDITING");
+      this.editCalendar = true;
+      this.calendarEditData = data;
       
+      this.theHour= parseInt(this.calendarEditData.obj.time.substring(0,2));
+      this.theMinutes= parseInt(this.calendarEditData.obj.time.split(":").pop());
+      this.time = { hour: this.theHour, minute: this.theMinutes };
+      this.theDate = this.calendarEditData.obj.eventDate;
 
+
+    } else {
+      this.editCalendar = false;
       this.dataArray = data;
-      //console.log(this.dataArray);
-    
-}
-  ngOnInit() {
+      this.dataToHighLight();
+    }
 
-    // this.form = this.fb.group({
-    //   task: ['', Validators.required],
-    //   eventDate: ['', Validators.required],
-    // })
-    this.form = new FormGroup({
-      task: new FormControl,
-      eventDate: new FormControl,
-      });
-    
+
+  }
+  ngOnInit() {
+    if(this.editCalendar){
+      this.form = this.fb.group({
+      task: [this.calendarEditData.obj.task, Validators.required],
+      eventDate: [''],
+    })
+    }else{
+      this.form = this.fb.group({
+        task: ['', Validators.required],
+        eventDate: [''],
+      })
+
+    }
   };
 
-  save() {
-    const time = this.theHour+":"+this.theMinutes;
-    console.log(time);
+  dataToHighLight() {
+    this.dataArray.forEach(element => {
+      let thisDate = new Date(element.eventDate);
+      this.datesToHighlight.push(thisDate)
 
-    // if(this.theDate == null || undefined){
-    //   this.theDate = new Date();
-    // }
-   
+    });
+
+  }
+
+  save() {
+    const time = this.theHour + ":" + this.theMinutes;
+    this.dateToSend = new CalendarDate(
+      this.theDate,
+      this.form.get('task').value,
+      time
+    )
+    this.calendarService.addCalendarDate(this.dateToSend)
+      .toPromise()
+      .then(
+        data => {
+          console.log("sündmus salvestatud");
+
+        },
+        err => {
+          throw (err)
+        })
+    this.dialogRef.close(this.form.value);
+
+  }
+
+
+  close() {
+    this.dialogRef.close();
+  }
+  saveChanges(calendarId){
+    const time = this.theHour + ":" + this.theMinutes;
+    console.log(time);
 
     this.dateToSend = new CalendarDate(
       this.theDate,
       this.form.get('task').value,
       time
     )
-    
-    console.log(this.dateToSend);
+    this.calendarService.changeCalendarDate(calendarId, this.dateToSend)
+      .toPromise()
+      .then(
+        data => {
+          console.log("Sündmus muudetud");
+        },
+        err => {
+          throw (err)
+        })
 
 
     this.dialogRef.close(this.form.value);
-   
-  }
 
-
-  close() {
-      this.dialogRef.close();
   }
 
 
@@ -88,22 +140,16 @@ export class KalenderPopUpComponent implements OnInit {
       const highlightDate = this.datesToHighlight
         .map(strDate => new Date(strDate))
         .some(d => d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear());
-      
+
       return highlightDate ? 'special-date' : '';
     };
   }
 
-  getSelectedDate(event){
-    //event.setHour(12);
-
-
+  getSelectedDate(event) {
     this.theDate = event;
-    
-    //this.theDate.setHours(5);
-
-    //this.form.get('eventDate').setValue(event);
   }
-  logTime(event){
+  logTime(event) {
+
     this.theHour = event.hour;
     this.theMinutes = event.minute;
 

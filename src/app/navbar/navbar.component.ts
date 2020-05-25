@@ -17,17 +17,32 @@ export class NavbarComponent implements OnInit {
     public auth: AuthenticationService,
     private router: Router,
     private themeService: ThemeService
-    ) { }
+  ) { }
 
-    
+
 
   ngOnInit() {
-    this.iconTheme = "light";
-    this.user= this.auth.getUserDetails();
+// get theme from local storage
+    if (localStorage.getItem('theme') == null) {
+      console.log( "no theme in  LS");     
+      this.iconTheme = "light";
+      this.themeService.setLightTheme();
+    } else if(localStorage.getItem('theme')=="light"){
+      console.log( "Light Theme from LS"); 
+      this.iconTheme = localStorage.getItem('theme');
+      this.themeService.setLightTheme();
+      
+    }else {
+      console.log( "Dark Theme from LS"); 
+      this.iconTheme = localStorage.getItem('theme');
+      this.themeService.setDarkTheme();
+    }
+
+    this.user = this.auth.getUserDetails();
   }
 
 
-  logout(){
+  logout() {
     console.log("Logging you out");
     this.auth.logout();
   }
@@ -35,10 +50,13 @@ export class NavbarComponent implements OnInit {
     if (this.themeService.isDarkTheme()) {
       this.themeService.setLightTheme();
       this.iconTheme = "light";
+      localStorage.setItem('theme', "light");
     } else {
       this.themeService.setDarkTheme();
       this.iconTheme = "dark";
+      localStorage.setItem('theme', "dark");
     }
+
   }
 
 }

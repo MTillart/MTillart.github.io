@@ -86,9 +86,6 @@ export class IsikuPopUpComponent implements OnInit {
         
       });
   }
-  goToToimikud(){
-    
-  }
 
   close() {
     this.dialogRef.close();

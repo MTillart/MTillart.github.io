@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://178.33.37.64:3000'
+  apiUrl: 'https://jaks.ee:3000'
 };
 
 /*

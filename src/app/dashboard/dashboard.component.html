@@ -7,27 +7,26 @@
     </thead>
     <tbody>
       <tr>
-        <td fxLayout="row" fxLayoutAlign="start center">
+        <td fxLayout="row" fxLayoutAlign="start center" class="toDoTableData">
           <form [formGroup]="form">
-            <mat-form-field *ngIf="isAddTask">
-              <input matInput placeholder="Ülesanne" formControlName="toDoTask" id="toDoTask" name="toDoTask" required>
+            <mat-form-field *ngIf="isAddToDo">
+              <input matInput placeholder="Ülesanne" autofocus formControlName="toDoTask" id="toDoTask" name="toDoTask" required (keydown.enter)="saveAddToDo()">
               <mat-error>Täida väli</mat-error>
             </mat-form-field>
           </form>
-          <mat-icon *ngIf="!isAddTask" (click)="openAddTask()" class="icon">add</mat-icon>
-          <mat-icon color="accent" *ngIf="isAddTask" (click)="saveAddTask()" class="icon">save</mat-icon>
-          <mat-icon color="accent" *ngIf="isAddTask" (click)="closeAddTask()" class="icon">clear</mat-icon>
+          <mat-icon *ngIf="!isAddToDo" (click)="openAddToDo()" class="icon">add</mat-icon>
+          <mat-icon color="accent" *ngIf="isAddToDo && form.valid" (click)="saveAddToDo()" class="icon">save</mat-icon>
+          <mat-icon color="accent" *ngIf="isAddToDo" (click)="closeAddToDo()" class="icon">clear</mat-icon>
         </td>
       </tr>
-      <tr *ngFor="let item of dataSource1; let i = index">
+      <tr *ngFor="let item of toDoData; let i = index">
         <td>
-          <mat-checkbox class="checkBox" [checked]="item.isDone"></mat-checkbox>
-          {{item.Task}}
-
+          <mat-checkbox class="checkBox" [checked]="item.isDone" (click)="checkedBox(item.task, item.isDone, item._id)"></mat-checkbox>
+          {{item.task}}
         </td>
         <td>
-          <mat-icon class="edit">edit</mat-icon>
-          <mat-icon class="delete">close</mat-icon>
+          <!-- <mat-icon class="edit" (click)="openEditToDo()">edit</mat-icon> -->
+          <mat-icon class="delete" (click)="deleteToDo(item._id)">close</mat-icon>
         </td>
       </tr>
 
@@ -48,20 +47,29 @@
           <mat-icon (click)="openDialog()" class="icon">add</mat-icon>
         </td>
       </tr>
-      <tr *ngFor="let item of calendarData">
-
-
+      <tr *ngFor="let item of sortedArray">
         <td>
           <h5>{{item.eventDate | date:'MMMM d'}}</h5>
-
-          <p><span>{{item.eventDate | date:'hh:mm '}} </span> {{item.task}}</p>
         </td>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="start center" >
+    
+        <td>
+          <p class="description"><span>{{item.time}} </span> {{item.task}}</p>
+        </td>
+        <td>
+          <mat-icon class="edit" (click)="changeCalenderEventDialog(item._id)">edit</mat-icon>
+          <mat-icon class="delete" (click)="deleteEvent(item._id)">close</mat-icon>
+        </td>
+      </div>
+
       </tr>
+
 
     </tbody>
   </table>
 
-  <table>
+  <!-- <table>
     <thead>
       <tr>
         <td>Käimas olevad tööd</td>
@@ -75,5 +83,5 @@
       </tr>
 
     </tbody>
-  </table>
+  </table> -->
 </div>

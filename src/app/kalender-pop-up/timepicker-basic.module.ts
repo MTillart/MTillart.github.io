@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -7,6 +7,11 @@ import { MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepicke
   MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
   MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
   import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  import { registerLocaleData } from '@angular/common';
+  import localeFr from '@angular/common/locales/fr';
+
+// the second parameter 'fr-FR' is optional
+registerLocaleData(localeFr, 'est');
   
 
 
@@ -30,6 +35,7 @@ import { CommonModule } from '@angular/common';
   entryComponents: [
     KalenderPopUpComponent,
   ],
+
 })
 export class NgbdTimepickerBasicModule {
   

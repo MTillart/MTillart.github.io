@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 export function navigate() {
-    cy.visit('http://178.33.37.64')
+    cy.visit('https://jaks.ee')
   }
   
   export function insertEmail(text) {
@@ -29,10 +29,33 @@ export function navigate() {
   }
   export function goToPage(page){
     cy.get('.'+page).click();
-    expect.followRedirect
+    expect.followRedirect;
     
+    }
 
-  }
+    export function openAddPerson(){
+      cy.get('.client_container > .mat-icon').click();
+    }
+    // export function fillForm(){
+    //   cy.get('input:first').should('have.attr', 'placeholder', 'Nimi').type("Hello World")
+    //   //cy.get('input#mat-slide-toggle-1-input.mat-slide-toggle-input.cdk-visually-hidden').type("Hello World",)
+    // }
+    export function fillForm(formControlName, inputValue) {
+      cy.get(`[formcontrolname="${formControlName}"]`).type(inputValue)
+    }
+    export function confirm(){
+      
+      cy.contains('Kinnita').click();
+    }
+    export function findFromList(insertedName){
+      cy.contains(insertedName).click();
+
+    }
+    export function deleteClient(){
+      cy.contains('Kustuta klient').click();
+    }
+
+  
 
 
 

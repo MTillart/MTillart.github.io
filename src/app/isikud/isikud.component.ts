@@ -38,7 +38,7 @@ export class IsikudComponent implements OnInit {
   openAddClient() {
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = false;
+    dialogConfig.disableClose = true;
     dialogConfig.height = "600px";
     dialogConfig.width = "350px";
     dialogConfig.hasBackdrop = true;
