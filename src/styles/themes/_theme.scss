@@ -42,7 +42,10 @@ html,
 body {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   overflow-x: hidden;
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 }
 // dialog-box global style
 .calendarBox {
@@ -51,9 +54,15 @@ body {
     color: var(--calendar-text-primary);
   }
 
+<<<<<<< HEAD
   // .active {
   //   background-color: red;
   // }
+=======
+  .active {
+    background-color: red;
+  }
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 }
 .dialogBox {
   mat-dialog-container {
@@ -63,4 +72,7 @@ body {
     padding: 0;
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194

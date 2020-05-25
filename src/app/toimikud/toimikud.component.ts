@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ClientsService } from '../_services/clients.service';
 import { Client } from '../_models/client';
 //import {TreeScript} from "./tree.js"
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
 @Component({
   selector: 'app-toimikud',
@@ -10,6 +13,7 @@ import { Client } from '../_models/client';
 })
 export class ToimikudComponent implements OnInit {
 
+<<<<<<< HEAD
   clientsData: Client[];
 
 
@@ -110,3 +114,23 @@ const tree: TreeBranch[] = [
     ]
   },
 ]
+=======
+
+ 
+
+  constructor() { }
+
+  dateObj:number = Date.now();
+
+  date: Date = new Date(2018, 0O5, 0O5, 17, 23, 42, 11);  
+  date1: Date = new Date(0, 0, 0, 0, 0, 10, 0);  
+
+  date2: Date;
+
+  ngOnInit() {
+
+    this.date.setHours(5)
+  }
+
+}
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194

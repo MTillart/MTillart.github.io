@@ -6,7 +6,10 @@ import { ClientsService } from '../_services/clients.service';
 import { Client } from '../_models/client';
 import { timer } from 'rxjs';
 import { TimerTask } from '../_models/timerTask';
+<<<<<<< HEAD
 import { TimerService } from '../_services/timer.service';
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
 
 @Component({
@@ -38,8 +41,12 @@ export class TimerComponent implements OnInit {
 
   constructor(
     private clientService: ClientsService,
+<<<<<<< HEAD
     private fb: FormBuilder,
     private timerService: TimerService
+=======
+    private fb: FormBuilder
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   ) { }
 
   ngOnInit() {
@@ -55,12 +62,18 @@ export class TimerComponent implements OnInit {
         map(name => name ? this._filter(name) : this.clientsData.slice())
       );
     this.form = this.fb.group({
+<<<<<<< HEAD
 
       timedTask: new FormControl('', Validators.required),
       clientName: new FormControl(''),
     })
     console.log(this.clientsData);
     
+=======
+      timedTask: ['', Validators.required],
+      clientName: ['', Validators.required],
+    })
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
   }
 
@@ -68,6 +81,7 @@ export class TimerComponent implements OnInit {
     console.log("Init for the clients");
     this.clientService.getAllClients()
       .subscribe(data => {
+<<<<<<< HEAD
         this.clientsData = data;       
       },
         error => {
@@ -75,10 +89,25 @@ export class TimerComponent implements OnInit {
         }
       );
     return this.clientsData
+=======
+        this.clientsData = data
+      },
+        error => {
+          console.log(error);
+
+        }
+      );
+
+    console.log(this.clientsData);
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
   }
 
   toggleExtendedView() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     this.extendView = !this.extendView;
   }
 
@@ -93,7 +122,10 @@ export class TimerComponent implements OnInit {
   }
 
   startTimer() {
+<<<<<<< HEAD
     // check if time is runnung already
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     if (!this.timeRunning && this.time == 0) {
       console.log("time Start");
 
@@ -109,15 +141,26 @@ export class TimerComponent implements OnInit {
       this.timeRunning = true;
 
     } else {
+<<<<<<< HEAD
       
+=======
+      console.log("Somethin ELSE");
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     }
   }
 
   pauseTimer() {
     this.subscription.unsubscribe();
     this.timeRunning = false;
+<<<<<<< HEAD
   }
 
+=======
+    console.log(this.time);
+
+  }
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   stopTimer() {
     if (this.time > 0) {
       this.subscription.unsubscribe();
@@ -131,6 +174,7 @@ export class TimerComponent implements OnInit {
         this.clientName.value.name,
         timeForDb
       );
+<<<<<<< HEAD
       // Send POST api
       this.timerService.addTimedTask(this.taskToSend)
       .subscribe( data => {
@@ -144,6 +188,8 @@ export class TimerComponent implements OnInit {
 
 
 
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
       console.log(this.taskToSend);
       //reset the timer and form
       this.timeRunning = false;
@@ -153,13 +199,19 @@ export class TimerComponent implements OnInit {
     }
 
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   secondToTime(seconds: number) {
     var date = new Date(0);
     date.setSeconds(seconds); // specify value for SECONDS here
     var timeString = date.toISOString().substr(11, 8);
     return timeString;
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
 }

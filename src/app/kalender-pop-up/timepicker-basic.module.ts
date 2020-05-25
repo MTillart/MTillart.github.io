@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,6 +37,20 @@ import { CommonModule } from '@angular/common';
     KalenderPopUpComponent,
   ],
 
+=======
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { NgbdTimepickerBasic } from './timepicker-basic';
+
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [NgbdTimepickerBasic],
+  exports: [NgbdTimepickerBasic],
+  bootstrap: [NgbdTimepickerBasic]
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 })
 export class NgbdTimepickerBasicModule {
   

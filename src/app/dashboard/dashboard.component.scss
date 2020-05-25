@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@import "base/typography";
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
 .dashboard {
   //width: 100%;
@@ -35,7 +39,10 @@ table {
     border-bottom-width: 0;
     color: var(--text-primary);
     td {
+<<<<<<< HEAD
       display: inline-flex;
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
       padding-left: 15px;
     }
   }
@@ -48,10 +55,16 @@ table {
   display: unset;
 }
 mat-icon {
+<<<<<<< HEAD
   //margin: 0;
   padding: 0;
   font-size: 24px;
   margin-left: 5px;
+=======
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 }
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: var(--text-grey);
@@ -60,6 +73,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   width: 20px;
   height: 20px;
 }
+<<<<<<< HEAD
 .delete{
   color: red;
   font-size: 16px;
@@ -77,4 +91,6 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 
 
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 

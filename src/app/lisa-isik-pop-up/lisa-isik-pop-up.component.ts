@@ -1,6 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+<<<<<<< HEAD
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+=======
+import { FormGroup, FormBuilder, FormControl, Validators, MinLengthValidator } from '@angular/forms';
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 import { Client } from '../_models/client';
 import { ClientsService } from '../_services/clients.service';
 
@@ -50,7 +54,11 @@ export class LisaIsikPopUpComponent implements OnInit {
         }),
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+<<<<<<< HEAD
         idCode: ['', [Validators.required, Validators.maxLength(11), Validators.pattern('^[0-9]*$')]],
+=======
+        idCode: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
         isCompany: [true],
         phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
         company: [''],
@@ -62,7 +70,11 @@ export class LisaIsikPopUpComponent implements OnInit {
       this.form = this.fb.group({
         name: [this.editData.name, Validators.required],
         email: [this.editData.email, [Validators.required, Validators.email]],
+<<<<<<< HEAD
         idCode: [this.editData.idCode, [Validators.required, Validators.maxLength(11), Validators.pattern('^[0-9]*$')]],
+=======
+        idCode: [this.editData.idCode, [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
         isCompany: [false],
         phone: [this.editData.phone, [Validators.required, Validators.pattern('^[0-9]*$')]],
         company: [this.editData.company],
@@ -72,7 +84,11 @@ export class LisaIsikPopUpComponent implements OnInit {
       this.form = this.fb.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+<<<<<<< HEAD
         idCode: ['', [Validators.required, Validators.maxLength(11), Validators.pattern('^[0-9]*$')]],
+=======
+        idCode: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern('^[0-9]*$')]],
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
         isCompany: [true],
         phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
         company: [''],

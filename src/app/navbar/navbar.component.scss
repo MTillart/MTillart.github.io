@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@import "base/typography";
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 
 .mainBar {
   padding: 10px;
@@ -16,12 +20,22 @@
     outline: 0 !important;
   }
 }
+<<<<<<< HEAD
 
+=======
+.logo-active {
+ 
+}
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 .navbar {
   margin: 30px;
   align-self: center;
   height: 68px;
+<<<<<<< HEAD
   border: 1px solid var(--text-primary);
+=======
+  border: 1px solid $primary-blue;
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   border-radius: 20px;
   //background-color: $primary-bg;
   background-color: var(--background-secondary);
@@ -34,7 +48,11 @@
   width: 100%;
   //background-color: yellow;
   height: 30px;
+<<<<<<< HEAD
   box-shadow: inset 6px 0px 3px -5px var(--background-secondary);
+=======
+  box-shadow: inset 6px 0px 3px -5px $primary-bg;
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   transform: skewX(-35deg);
   padding-left: 3%;
   border-left: 1px solid var(--text-grey);
@@ -86,7 +104,10 @@
     width: 120px; 
 
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 }
 .toggle{
   margin-top: 5px;
@@ -109,3 +130,7 @@
   }
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194

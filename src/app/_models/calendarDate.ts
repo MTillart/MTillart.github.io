@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // export class CalendarDate {
 //   eventDate: Date;
 //   time: String;
@@ -56,3 +57,10 @@ export class CalendarDate {
 
   }
 }
+=======
+export interface CalendarDate {
+    Task: string;
+    calDate: Date;
+    Time: string;
+  }
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194

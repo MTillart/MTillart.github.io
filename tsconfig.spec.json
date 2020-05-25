@@ -1,7 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+<<<<<<< HEAD
     "emitDecoratorMetadata": true,
+=======
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     "outDir": "./out-tsc/spec",
     "types": [
       "jasmine",

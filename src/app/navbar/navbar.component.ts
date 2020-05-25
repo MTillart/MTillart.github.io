@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
     public auth: AuthenticationService,
     private router: Router,
     private themeService: ThemeService
+<<<<<<< HEAD
   ) { }
 
 
@@ -43,6 +44,19 @@ export class NavbarComponent implements OnInit {
 
 
   logout() {
+=======
+    ) { }
+
+    
+
+  ngOnInit() {
+    this.iconTheme = "light";
+    this.user= this.auth.getUserDetails();
+  }
+
+
+  logout(){
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     console.log("Logging you out");
     this.auth.logout();
   }
@@ -50,6 +64,7 @@ export class NavbarComponent implements OnInit {
     if (this.themeService.isDarkTheme()) {
       this.themeService.setLightTheme();
       this.iconTheme = "light";
+<<<<<<< HEAD
       localStorage.setItem('theme', "light");
     } else {
       this.themeService.setDarkTheme();
@@ -57,6 +72,12 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('theme', "dark");
     }
 
+=======
+    } else {
+      this.themeService.setDarkTheme();
+      this.iconTheme = "dark";
+    }
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   }
 
 }

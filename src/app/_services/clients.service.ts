@@ -26,6 +26,7 @@ export class ClientsService {
   public addClient(client: Client): Observable<any> {
     console.log("??????");
     console.log("Adding client");   
+<<<<<<< HEAD
     return this.http.post<Client>(environment.apiUrl +`/client`, client);    
   }
   
@@ -39,6 +40,24 @@ export class ClientsService {
 
   public deleteClient(clientId: string): Observable<void>{
     return this.http.delete<void>(environment.apiUrl +`/client/${clientId}`, { responseType: 'text' as 'json'});
+=======
+
+    return this.http.post<Client>(environment.apiUrl +`/client`, client);
+    
+  }
+  public getClient(clientId){
+    return this.http.get<Client>(environment.apiUrl +`/client/${clientId}`);
+  }
+  public changeClient(clientId: string, client: Client): Observable<any>{
+
+    return this.http.put<Client>(environment.apiUrl +`/client/${clientId}`, client);
+
+  }
+  public deleteClient(clientId): Observable<void>{
+
+    return this.http.delete<void>(environment.apiUrl +`/client/${clientId}`, { responseType: 'text' as 'json'});
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   }
 
 

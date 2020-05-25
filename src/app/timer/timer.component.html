@@ -7,24 +7,40 @@
     <div class="extendedView" *ngIf="extendView">
       <form [formGroup]="form">
         <mat-form-field>
+<<<<<<< HEAD
           <input matInput type="text" placeholder="Tegevus" [formControl]="timedTask" required>
+=======
+          <input matInput type="text" placeholder="Tegevus" [formControl]="timedTask">
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Projekt/Klient</mat-label>
+<<<<<<< HEAD
           <input type="text" matInput [formControl]="clientName" [matAutocomplete]="auto" required>
+=======
+          <input type="text" matInput [formControl]="clientName" [matAutocomplete]="auto">
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
             <mat-option *ngFor="let item of filteredOptions | async" [value]="item">
               {{item.name}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
+<<<<<<< HEAD
      
       <h5>Aeg:{{time * 1000| date:'H:mm:ss':'UTC'}}</h5>
       <button mat-button (click)='startTimer()'><mat-icon>play_arrow</mat-icon></button>
       <button mat-button (click)='pauseTimer()' [disabled]=!timeRunning><mat-icon>pause</mat-icon></button>
       <button mat-button (click)='stopTimer()' [disabled]=!timeRunning><mat-icon>stop</mat-icon></button>
      </form>
+=======
+      </form>
+      <h5>Aeg:{{time * 1000| date:'H:mm:ss':'UTC'}}</h5>
+      <button (click)='startTimer()'><mat-icon>play_arrow</mat-icon></button>
+      <button (click)='pauseTimer()'><mat-icon>pause</mat-icon></button>
+      <button (click)='stopTimer()'><mat-icon>stop</mat-icon></button>
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     </div>
 
   </div>

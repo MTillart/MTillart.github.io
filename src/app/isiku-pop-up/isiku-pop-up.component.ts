@@ -43,6 +43,7 @@ export class IsikuPopUpComponent implements OnInit {
   }
   deleteClient(clientId) {
 
+<<<<<<< HEAD
     if (confirm("Kas soovid kliendi andmed kustutada?")) {
       console.log("kustutan kliendi");
       this.clientService.deleteClient(clientId)
@@ -66,6 +67,17 @@ export class IsikuPopUpComponent implements OnInit {
                 
     //   );
     //this.dialogRef.close();
+=======
+    console.log("ID: "+clientId);
+    
+    this.clientService.deleteClient(clientId)
+      .subscribe(
+        ()=> console.log(`Client with id = ${clientId} deleted`),
+        (err) => console.log(err)   
+                
+      );
+    this.dialogRef.close();
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   }
   changeClient(clientId){
     
@@ -85,6 +97,11 @@ export class IsikuPopUpComponent implements OnInit {
         this.getClient(clientId);       
         
       });
+<<<<<<< HEAD
+=======
+      
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   }
 
   close() {

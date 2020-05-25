@@ -1,4 +1,8 @@
 <div class="dashboard" fxLayout="row" fxLayoutAlign="space-between start">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   <table>
     <thead>
       <tr>
@@ -7,6 +11,7 @@
     </thead>
     <tbody>
       <tr>
+<<<<<<< HEAD
         <td fxLayout="row" fxLayoutAlign="start center" class="toDoTableData">
           <form [formGroup]="form">
             <mat-form-field *ngIf="isAddToDo">
@@ -27,6 +32,23 @@
         <td>
           <!-- <mat-icon class="edit" (click)="openEditToDo()">edit</mat-icon> -->
           <mat-icon class="delete" (click)="deleteToDo(item._id)">close</mat-icon>
+=======
+        <td>
+          <mat-form-field *ngIf="isAddTask" [formGroup]="form">
+            <input matInput placeholder="Ülesanne" formControlName="toDoTask" id="toDoTask" name="toDoTask" required>
+            <mat-error>Täida väli</mat-error>
+          </mat-form-field>
+          <mat-icon *ngIf="!isAddTask" (click)="openAddTask()" class="icon">add</mat-icon>
+          <mat-icon color="accent" *ngIf="isAddTask" (click)="openAddTask()" class="icon">save</mat-icon>
+          <mat-icon color="accent" *ngIf="isAddTask" (click)="closeAddTask()" class="icon">clear</mat-icon>
+        </td>
+      </tr>
+      <tr *ngFor="let item of dataSource1; let i = index">
+        <td>
+          <mat-checkbox class="checkBox" [checked]="item.isDone"></mat-checkbox>
+          {{item.Task}}
+
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
         </td>
       </tr>
 
@@ -42,6 +64,7 @@
       </tr>
     </thead>
     <tbody>
+<<<<<<< HEAD
       <tr>
         <td>
           <mat-icon (click)="openDialog()" class="icon">add</mat-icon>
@@ -70,6 +93,21 @@
   </table>
 
   <!-- <table>
+=======
+      <tr *ngFor="let item of calendarData">
+
+        <td>
+          <h5>{{item.eventDate | date:'MMMM d'}}</h5>
+
+          <p><span>{{item.eventDate | date:'hh:mm '}} </span> {{item.task}}</p>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <table>
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     <thead>
       <tr>
         <td>Käimas olevad tööd</td>
@@ -78,10 +116,19 @@
     <tbody>
       <tr *ngFor="">
         <td>
+<<<<<<< HEAD
 
+=======
+          <mat-checkbox [checked]="item.isDone"></mat-checkbox>
+          {{item.Task}}
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
         </td>
       </tr>
 
     </tbody>
+<<<<<<< HEAD
   </table> -->
+=======
+  </table>
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
 </div>

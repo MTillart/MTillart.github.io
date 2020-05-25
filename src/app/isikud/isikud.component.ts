@@ -24,7 +24,11 @@ export class IsikudComponent implements OnInit {
 
   }
   getClients() {
+<<<<<<< HEAD
     //console.log("Init for the clients");
+=======
+    console.log("Init for the clients");
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     this.clientService.getAllClients()
     .subscribe( data => {
       this.clientsData = data},
@@ -33,12 +37,22 @@ export class IsikudComponent implements OnInit {
         
       }
       );
+<<<<<<< HEAD
+=======
+    
+    console.log(this.clientsData);
+    
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
   }
 
   openAddClient() {
     const dialogConfig = new MatDialogConfig();
 
+<<<<<<< HEAD
     dialogConfig.disableClose = true;
+=======
+    dialogConfig.disableClose = false;
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
     dialogConfig.height = "600px";
     dialogConfig.width = "350px";
     dialogConfig.hasBackdrop = true;

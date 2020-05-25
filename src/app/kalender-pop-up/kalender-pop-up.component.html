@@ -1,6 +1,7 @@
 <h3 class="close" (click)="close()">X</h3>
 <h3 mat-dialog-title>Sündmuse sisestamine</h3>
 
+<<<<<<< HEAD
 <div mat-dialog-content>
     <form [formGroup]="form">
 
@@ -34,3 +35,35 @@
     <button *ngIf="editCalendar" [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="saveChanges(calendarEditData.obj._id)">Salvesta muudatused</button>
 
 </div>
+=======
+
+<mat-form-field [formGroup]="form">
+    <input matInput formControlName="task" required>
+    <mat-placeholder class="placeholder">Sisesta sündmus</mat-placeholder>
+
+
+    <!-- <ul *ngFor="let item of dataArray">
+        <li>{{item.Task}}</li>
+    </ul> -->
+</mat-form-field>
+<mat-dialog-content>
+    <div class="dialog_container">
+        <div class="calendar-wrapper">
+            <mat-calendar [dateClass]="dateClass()" [selected]="form.get('eventDate').value"
+                (selectedChange)="getSelectedDate($event)" #calendar [(selected)]="selectedDate">
+            </mat-calendar>
+        </div>
+
+        <div class="timepicker">
+            <ngb-timepicker [ngModel]="time" (ngModelChange)="logTime($event)"></ngb-timepicker>
+        </div>
+    </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button [disabled]="!form.dirty" class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
+>>>>>>> 25352e81eb3cfab4a3a81c9fe722e3d2a253b194
